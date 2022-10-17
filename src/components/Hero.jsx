@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DonateButtonModal from "./DonateButtonModal";
 
 export default function Hero() {
   return (
@@ -15,9 +16,10 @@ export default function Hero() {
             <Link to="/signup" className="btn btn-lg btn-warning mx-2 fw-light">
               Join Us!
             </Link>
-            <Link to="/donate" className="btn btn-lg btn-warning mx-2 fw-light">
+            {/* <Link to="/donate" className="btn btn-lg btn-warning mx-2 fw-light">
               Donate
-            </Link>
+            </Link> */}
+            <DonateButtonModal />
           </div>
         </div>
       </section>

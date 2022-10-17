@@ -1,4 +1,5 @@
 // import { useAuthState } from "react-firebase-hooks/auth";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
@@ -26,19 +27,23 @@ function App() {
     return isActive;
   };
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          {checkIfActive()
-            ? [<Route path="/home" element={<Homepage />} />]
-            : [<Route path={"*"} element={<Navigate replace to={"/"} />} />]}
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <PayPalScriptProvider
+      options={{ "client-id": process.env.PAYPAL_CLIENT_ID }}
+    >
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            {checkIfActive()
+              ? [<Route path="/home" element={<Homepage />} />]
+              : [<Route path={"*"} element={<Navigate replace to={"/"} />} />]}
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </PayPalScriptProvider>
   );
 }
 
