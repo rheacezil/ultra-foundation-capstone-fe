@@ -1,0 +1,38 @@
+/* ***** Login Registration ***** */
+
+.page-content {
+    width: 100%;
+    min-height: 100vh;
+}
+
+#login {
+    background-color:  rgb(255, 215, 107);
+    padding-top: 100px;
+}
+
+#login .row {
+    background-color: whitesmoke;
+    border-radius: 30px;
+    box-shadow: 12px 12px 25px rgb(179, 140, 13);
+}
+
+#login img {
+    opacity: 85%;
+}
+
+
+#signup {
+    background-color:  rgb(255, 215, 107);
+    padding-top: 100px;
+}
+
+#signup .row {
+    flex-direction: row-reverse;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    box-shadow: 12px 12px 25px rgb(179, 140, 13);
+}
+
+#signup img {
+    opacity: 95%;
+}

@@ -1,0 +1,112 @@
+/* Hero */
+#hero {
+    background: url(../public/images/hero-cover.png) top/cover;
+    box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.664);
+    
+}
+
+#hero h1 {
+    font-family: var(--lg-font);
+    font-weight: 400 !important;
+}
+
+/* Promo */
+#promo {
+    margin-top: -200px;
+    min-height: 360px;
+}
+.promo-wrap {
+    z-index: 99;
+}
+
+#promo .row {
+    background-color: #fff;
+    box-shadow: 0px 16px 28px 0px rgb(0 0 0 / 15%);
+}
+
+/* Current Fundraisers */
+#fundraisers {
+    background: url(../public/images/background-1.png) top/cover;
+}
+.progress {
+    border-radius: 0px;
+}
+.progress-bar {
+    text-align: end;
+    padding-right: 10px;
+}
+#fundraisers span {
+    top: 30px;
+    right: 30px;
+}
+
+/* Newsletter  */
+#newsletter {
+    background-color: whitesmoke;
+}
+#newsletter .input-group {
+    max-width: 500px;
+}
+
+#newsletter .form-control {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+/* ------- HOMEPAGE ------- */
+/* Volunteer Programs */
+.program-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 215, 107, 0.9);
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    opacity: 0;
+}
+
+.program-item:hover .program-overlay {
+    opacity: 1;
+}
+
+.program-item:hover img {
+    transform: scale(1.1);
+}
+
+.program-item img, .program-item .program-overlay {
+    transition: all 0.4s ease;
+}
+
+/* Badges */
+#badges {
+    background: url(../public/images/background-1.png) top/cover;
+}
+
+/* .card:hover {
+    transform: scale(1.1);
+    transition: all 0.4s ease;
+} */
+
+/* Donate Page */
+.donate-bg{
+    background-image: url(../public/images/hero-cover.png);
+    box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.300);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+  
+}
+.donate{
+    margin-top: 90px;
+    height: 100%;
+    width: 100%;
+    
+}
+.donate-form{
+    margin-top: 104px;
+}
