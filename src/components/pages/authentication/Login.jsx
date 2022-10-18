@@ -9,7 +9,6 @@ import * as actionUser from "../../../redux/actions/actionUser";
 import { bindActionCreators } from "redux";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, facebookProvider, googleProvider } from "../../../firebase";
-import { useCollection } from "react-firebase-hooks/firestore";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -24,21 +23,26 @@ export default function Login() {
     useDispatch()
   );
   const [user] = useAuthState(auth);
-  const activeUser = useSelector((state) => state.activeUser);
+
   useEffect(() => {
-    if (user || activeUser.email) {
+    if (user || localStorage.email) {
       // navigate home page
-      navigate("/home");
+      navigate("/");
     }
-  });
+  }, [localStorage.email]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    loginUser({ email: email, password: password }).catch((error) => {
-      console.log(error);
-      setInvalidUser(true);
-    });
+    loginUser({ email: email, password: password })
+      .then(() => {
+        localStorage.setItem("email", email);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+        setInvalidUser(true);
+      });
   };
 
   const facebookSignIn = (e) => {
@@ -47,6 +51,8 @@ export default function Login() {
       .signInWithPopup(facebookProvider)
       .then((response) => {
         loginUserViaProvider(response?.additionalUserInfo.profile.email);
+        localStorage.setItem("email", email);
+        navigate("/n");
       })
       .catch((e) => alert(e.message));
   };
@@ -57,6 +63,8 @@ export default function Login() {
       .signInWithPopup(googleProvider)
       .then((response) => {
         loginUserViaProvider(response?.additionalUserInfo.profile.email);
+        localStorage.setItem("email", email);
+        navigate("/");
       })
       .catch((error) => alert(error.message));
   };

@@ -24,16 +24,16 @@ export default function Signup() {
   const navigate = useNavigate();
   const { registerUser } = bindActionCreators(actionUser, useDispatch());
   const [user] = useAuthState(auth);
-  const activeUser = useSelector((state) => state.activeUser);
 
   useEffect(() => {
-    if (user || activeUser.email) {
+    if (user || localStorage.email) {
       navigate("/");
     }
   });
 
   const checkIfValid = () => {
     let isValid = true;
+
     // Check if password is same with confirmPassword
     if (password !== confirmPassword || !password) {
       setInvalidPassword(true);
@@ -68,8 +68,6 @@ export default function Signup() {
 
   const closeRegistration = () => {
     setShowModal(false);
-    setFirstName("");
-    setLastName("");
     setEmail("");
     setPassword("");
     setConfirmPassword("");
