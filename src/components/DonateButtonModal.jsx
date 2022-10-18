@@ -53,6 +53,7 @@ export default function DonateButtonModal() {
         <Modal.Header closeButton>
           <Modal.Title className="lead">Ultra Foundation</Modal.Title>
         </Modal.Header>
+
         {count === 1 ? (
           <Modal.Body>
             <h3 className="lead">For what cause will your donation be?</h3>
@@ -70,6 +71,24 @@ export default function DonateButtonModal() {
                 <TextField {...params} label="Fundraiser" />
               )}
             />
+
+            {fundraiser ? (
+              <Button
+                variant="warning"
+                className="text-white w-100 mt-5"
+                onClick={handleNext}
+              >
+                Next
+              </Button>
+            ) : (
+              <Button
+                variant="warning"
+                className="text-white w-100 mt-5"
+                disabled
+              >
+                Next
+              </Button>
+            )}
           </Modal.Body>
         ) : null}
 
@@ -142,6 +161,38 @@ export default function DonateButtonModal() {
                   Other
                 </Button>{" "}
               </div>
+            </div>
+            <div className="row d-flex">
+              <div className="col-lg-6 my-3 px-5">
+                <Button
+                  variant="secondary"
+                  className="w-100"
+                  onClick={handlePrev}
+                >
+                  Back
+                </Button>
+              </div>
+              {amount ? (
+                <div className="col-lg-6 my-3 px-5">
+                  <Button
+                    variant="warning"
+                    className="text-white w-100"
+                    onClick={handleNext}
+                  >
+                    Next
+                  </Button>
+                </div>
+              ) : (
+                <div className="col-lg-6 my-3 px-5">
+                  <Button
+                    variant="warning"
+                    className="text-white w-100"
+                    disabled
+                  >
+                    Next
+                  </Button>
+                </div>
+              )}
             </div>
           </Modal.Body>
         ) : null}
@@ -235,7 +286,7 @@ export default function DonateButtonModal() {
           </Modal.Body>
         ) : null}
 
-        <Modal.Footer>
+        {/* <Modal.Footer>
           {count === 2 || count === 3 ? (
             <Button variant="secondary" onClick={handlePrev}>
               Back
@@ -247,7 +298,7 @@ export default function DonateButtonModal() {
               Next
             </Button>
           ) : null}
-        </Modal.Footer>
+        </Modal.Footer> */}
       </Modal>
     </>
   );
