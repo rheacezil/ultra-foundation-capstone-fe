@@ -5,11 +5,16 @@ import promiseMiddleware from 'redux-promise-middleware';
 import logger from 'redux-logger';
 
 // Reducers
-import userReducer from "./../redux/reducers/userReducer";
+import programReducer from './reducers/programReducer';
+import fundraiserReducer from './reducers/fundraiserReducer';
+import donationReducer from "./reducers/donationReducer";
+
 
 export const store = configureStore({
     reducer: {
-        activeUser: userReducer,
+        programList: programReducer,
+        fundraiserList: fundraiserReducer,
+        donationList: donationReducer,
     },
     middleware: [
         thunk,
