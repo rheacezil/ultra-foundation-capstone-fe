@@ -27,7 +27,7 @@ export default function Login() {
   useEffect(() => {
     if (user || localStorage.email) {
       // navigate home page
-      navigate("/");
+      navigate("/homepage");
     }
   }, [localStorage.email]);
 
