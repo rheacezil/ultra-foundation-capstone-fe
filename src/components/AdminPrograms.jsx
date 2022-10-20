@@ -69,7 +69,7 @@ export default function AdminPrograms() {
       // Upload to s3
       axios
         .put(
-          `http://localhost:8080/program/${program.programId}/upload`,
+          `https://ultra-foundation-capstone.herokuapp.com/program/${program.programId}/upload`,
           formData,
           {
             headers: {
@@ -95,7 +95,7 @@ export default function AdminPrograms() {
         <img
           src={
             program.imageLink
-              ? `http://localhost:8080/program/${program.programId}/download`
+              ? `https://ultra-foundation-capstone.herokuapp.com/program/${program.programId}/download`
               : "/images/empty-image.jpeg"
           }
           alt={program.programName}

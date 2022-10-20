@@ -89,7 +89,7 @@ export default function AdminFundraisers() {
       // Upload to s3
       axios
         .put(
-          `http://localhost:8080/fundraiser/${fundraiser.fundraiserId}/upload`,
+          `https://ultra-foundation-capstone.herokuapp.com/fundraiser/${fundraiser.fundraiserId}/upload`,
           formData,
           {
             headers: {
@@ -115,17 +115,16 @@ export default function AdminFundraisers() {
         <img
           src={
             fundraiser.imageLink
-              ? `https://localhost:8080/fundraiser/${fundraiser.fundraiserId}/download`
+              ? `https://ultra-foundation-capstone.herokuapp.com/fundraiser/${fundraiser.fundraiserId}/download`
               : "/images/empty-image.jpeg"
           }
           alt={fundraiser.fundraiserName}
           {...getRootProps()}
         />
         <div className="card-body">
-          <h5 className="card-title mb-0">
-            {fundraiser?.fundraiserName.substring(0, 12)}...
-          </h5>
-          <p className="card-text lead fw-bold">{fundraiser.fundraiserName}</p>
+          <h5 className="card-title mb-0">{fundraiser?.fundraiserName}</h5>
+          <p className="card-title mb-0">{fundraiser?.description}</p>
+
           <button onClick={() => deleteFundraiser(fundraiser.fundraiserId)}>
             DELETE
           </button>
@@ -136,13 +135,13 @@ export default function AdminFundraisers() {
   const renderFundraisers = () => {
     return (
       <>
-        {fundraiserList.map((fund) => (
-          <React.Fragment key={fund.fundraiserId}>
+        {fundraiserList.map((fundraiser) => (
+          <React.Fragment key={fundraiser.fundraiserId}>
             <div
               className="col-md-3 mb-4"
               style={{ height: "300px", width: "250px" }}
             >
-              <MyDropzone {...fund} />
+              <MyDropzone {...fundraiser} />
             </div>
           </React.Fragment>
         ))}
@@ -180,7 +179,7 @@ export default function AdminFundraisers() {
             isInvalid={invalidDescription}
           />
           <Form.Control.Feedback type="invalid">
-            Please input a Program description
+            Please input a fundraiser description
           </Form.Control.Feedback>
         </Form.Group>
 
