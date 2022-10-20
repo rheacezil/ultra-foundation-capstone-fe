@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button, Form, Modal } from "react-bootstrap";
 import { auth } from "../../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import * as actionUser from "../../../redux/actions/actionUser";
 import { bindActionCreators } from "redux";
 

@@ -111,21 +111,26 @@ export default function AdminFundraisers() {
 
     // Return statement
     return (
-      <div className="card h-100 text-center p-4">
+      <div className="card h-100 text-center p-5 shadow mb-5 bg-body rounded">
         <img
           src={
             fundraiser.imageLink
               ? `https://ultra-foundation-capstone.herokuapp.com/fundraiser/${fundraiser.fundraiserId}/download`
-              : "/images/empty-image.jpeg"
+              : "/images/empty.jpg"
           }
           alt={fundraiser.fundraiserName}
           {...getRootProps()}
         />
         <div className="card-body">
-          <h5 className="card-title mb-0">{fundraiser?.fundraiserName}</h5>
-          <p className="card-title mb-0">{fundraiser?.description}</p>
+          <h5 className="card-title mb-1">{fundraiser?.fundraiserName}</h5>
+          <p className="card-title mb-1 text-muted">
+            {fundraiser?.description}
+          </p>
 
-          <button onClick={() => deleteFundraiser(fundraiser.fundraiserId)}>
+          <button
+            className="btn btn-md px-5 bg-warning text-center text-white "
+            onClick={() => deleteFundraiser(fundraiser.fundraiserId)}
+          >
             DELETE
           </button>
         </div>
@@ -150,80 +155,92 @@ export default function AdminFundraisers() {
   };
 
   return (
-    <>
-      <hr />
-      <Form onSubmit={handleSubmit} className="row">
-        {/* fundraiser NAME */}
-        <Form.Group controlId="formfundraiserName" className="w-50">
-          <Form.Control
-            type="text"
-            size="sm"
-            placeholder="Enter fundraise Name"
-            value={fundraiserName}
-            onChange={(e) => setFundraiserName(e.target.value)}
-            isInvalid={invalidFundraiserName}
-          ></Form.Control>
-          <Form.Control.Feedback type="invalid">
-            Please input a fundraise name
-          </Form.Control.Feedback>
-        </Form.Group>
+    <section className="bg-light pt-5">
+      <div className="d-flex justify-content-center align-items-center bg-donate">
+        <div className="row w-50 h-50 pt-5 shadow p-3 mb-5 bg-body rounded">
+          <div className="col-md-6">
+            <Form onSubmit={handleSubmit}>
+              {/* fundraiser NAME */}
+              <Form.Group controlId="formfundraiserName" className=" mb-3">
+                <Form.Control
+                  type="text"
+                  size="sm"
+                  placeholder="Enter fundraise Name"
+                  value={fundraiserName}
+                  onChange={(e) => setFundraiserName(e.target.value)}
+                  isInvalid={invalidFundraiserName}
+                ></Form.Control>
+                <Form.Control.Feedback type="invalid">
+                  Please input a fundraise name
+                </Form.Control.Feedback>
+              </Form.Group>
 
-        {/* DESCRIPTION */}
-        <Form.Group className="mb-3" controlId="formDescription">
-          <Form.Control
-            as="textarea"
-            placeholder="Enter Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            rows={3}
-            isInvalid={invalidDescription}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please input a fundraiser description
-          </Form.Control.Feedback>
-        </Form.Group>
+              {/* fundraiser target amount */}
+              <Form.Group controlId="formTargetAmount" className="mb-3">
+                <Form.Control
+                  type="text"
+                  size="sm"
+                  placeholder="Target Amount"
+                  value={targetAmount}
+                  onChange={(e) => setTargetAmount(e.target.value)}
+                  isInvalid={invalidTargetAmount}
+                ></Form.Control>
+                <Form.Control.Feedback type="invalid">
+                  amount must be a number
+                </Form.Control.Feedback>
+              </Form.Group>
 
-        {/* fundraiser target amount */}
-        <Form.Group controlId="formTargetAmount" className="w-50">
-          <Form.Control
-            type="text"
-            size="sm"
-            placeholder="Enter fundraise amount"
-            value={targetAmount}
-            onChange={(e) => setTargetAmount(e.target.value)}
-            isInvalid={invalidTargetAmount}
-          ></Form.Control>
-          <Form.Control.Feedback type="invalid">
-            amount must be a number
-          </Form.Control.Feedback>
-        </Form.Group>
+              {/* fundraiser amount generated */}
+              <Form.Group controlId="formAmountGenerate" className="mb-3">
+                <Form.Control
+                  type="text"
+                  size="sm"
+                  placeholder="Amount Generate"
+                  value={amountGenerated}
+                  onChange={(e) => setAmountGenerated(e.target.value)}
+                  isInvalid={invalidAmountGenerated}
+                ></Form.Control>
+                <Form.Control.Feedback type="invalid">
+                  amount must be a number
+                </Form.Control.Feedback>
+              </Form.Group>
 
-        {/* fundraiser amount generated */}
-        <Form.Group controlId="formAmountGener" className="w-50">
-          <Form.Control
-            type="text"
-            size="sm"
-            placeholder="Enter fundraise amount"
-            value={amountGenerated}
-            onChange={(e) => setAmountGenerated(e.target.value)}
-            isInvalid={invalidAmountGenerated}
-          ></Form.Control>
-          <Form.Control.Feedback type="invalid">
-            amount must be a number
-          </Form.Control.Feedback>
-        </Form.Group>
+              {/* DESCRIPTION */}
+              <Form.Group className="mb-3 " controlId="formDescription">
+                <Form.Control
+                  as="textarea"
+                  placeholder="Enter Description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  rows={3}
+                  isInvalid={invalidDescription}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please input a fundraiser description
+                </Form.Control.Feedback>
+              </Form.Group>
 
-        <div className="col-12 d-flex flex-wrap justify-content-center">
-          <button
-            className="bg-primary text-center text-white w-50"
-            onClick={handleSubmit}
-          >
-            Upload
-          </button>
+              <div className="col-12 d-flex flex-wrap justify-content-center py-2">
+                <button
+                  className="btn btn-lg px-5 bg-warning text-center text-white "
+                  onClick={handleSubmit}
+                >
+                  Upload
+                </button>
+              </div>
+            </Form>
+          </div>
+          <div className="col-md-6 mb-5">
+            <img
+              src="/images/empty.jpg"
+              className="img-fluid h-100 w-100 border border-warning"
+            />
+          </div>
         </div>
-      </Form>
-      <hr />
-      <div className="row justify-content-center">{renderFundraisers()}</div>
-    </>
+
+        <hr />
+        <div className="row justify-content-center">{renderFundraisers()}</div>
+      </div>
+    </section>
   );
 }

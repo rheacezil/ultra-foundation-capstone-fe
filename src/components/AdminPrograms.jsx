@@ -91,21 +91,24 @@ export default function AdminPrograms() {
 
     // Return statement
     return (
-      <div className="card h-100 text-center p-4">
+      <div className="card h-100 text-center p-5 shadow mb-5 bg-body rounded">
         <img
           src={
             program.imageLink
               ? `https://ultra-foundation-capstone.herokuapp.com/program/${program.programId}/download`
-              : "/images/empty-image.jpeg"
+              : "/images/empty.jpg"
           }
           alt={program.programName}
           {...getRootProps()}
         />
         <div className="card-body">
-          <h5 className="card-title mb-0">{program?.programName}</h5>
-          <p className="card-title mb-0">{program?.description}</p>
+          <h5 className="card-title mb-1">{program?.programName}</h5>
+          <p className="card-title mb-1 text-muted">{program?.description}</p>
 
-          <button onClick={() => deleteProgram(program.programId)}>
+          <button
+            className="btn btn-md px-5 bg-warning text-center text-white "
+            onClick={() => deleteProgram(program.programId)}
+          >
             DELETE
           </button>
         </div>
@@ -131,50 +134,61 @@ export default function AdminPrograms() {
   };
 
   return (
-    <>
-      <hr />
-      <Form onSubmit={handleSubmit} className="row">
-        {/* Program NAME */}
-        <Form.Group controlId="formProgramName" className="w-50">
-          <Form.Control
-            type="text"
-            size="sm"
-            placeholder="Enter Program Name"
-            value={programName}
-            onChange={(e) => setProgramName(e.target.value)}
-            isInvalid={invalidProgramName}
-          ></Form.Control>
-          <Form.Control.Feedback type="invalid">
-            Please input a valid Program name
-          </Form.Control.Feedback>
-        </Form.Group>
+    <section className="bg-light pt-5">
+      <div className="d-flex justify-content-center align-items-center bg-donate">
+        <div className="row w-50 h-50 pt-5 shadow p-3 mb-5 bg-body rounded">
+          <div className="col-md-6">
+            <Form onSubmit={handleSubmit}>
+              {/* Program NAME */}
+              <Form.Group controlId="formProgramName" className="mb-3">
+                <Form.Control
+                  type="text"
+                  size="sm"
+                  placeholder="Enter Program Name"
+                  value={programName}
+                  onChange={(e) => setProgramName(e.target.value)}
+                  isInvalid={invalidProgramName}
+                ></Form.Control>
+                <Form.Control.Feedback type="invalid">
+                  Please input a valid Program name
+                </Form.Control.Feedback>
+              </Form.Group>
 
-        {/* DESCRIPTION */}
-        <Form.Group className="mb-3" controlId="formDescription">
-          <Form.Control
-            as="textarea"
-            placeholder="Enter Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            rows={3}
-            isInvalid={invalidDescription}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please input a Program description
-          </Form.Control.Feedback>
-        </Form.Group>
+              {/* DESCRIPTION */}
+              <Form.Group className="mb-3" controlId="formDescription">
+                <Form.Control
+                  as="textarea"
+                  placeholder="Enter Description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  rows={3}
+                  isInvalid={invalidDescription}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please input a Program description
+                </Form.Control.Feedback>
+              </Form.Group>
 
-        <div className="col-12 d-flex flex-wrap justify-content-center">
-          <button
-            className="bg-primary text-center text-white w-50"
-            onClick={handleSubmit}
-          >
-            Upload
-          </button>
+              <div className="col-12 d-flex flex-wrap justify-content-center">
+                <button
+                  className="btn btn-lg px-5 bg-warning text-center text-white "
+                  onClick={handleSubmit}
+                >
+                  Upload
+                </button>
+              </div>
+            </Form>
+            <hr />
+            <div className="row justify-content-center">{renderPrograms()}</div>
+          </div>
+          <div className="col-md-6 mb-5">
+            <img
+              src="/images/empty.jpg"
+              className="img-fluid h-100 w-100 border border-warning"
+            />
+          </div>
         </div>
-      </Form>
-      <hr />
-      <div className="row justify-content-center">{renderPrograms()}</div>
-    </>
+      </div>
+    </section>
   );
 }
