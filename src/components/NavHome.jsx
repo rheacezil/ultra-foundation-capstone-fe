@@ -75,6 +75,11 @@ export default function NavHome() {
                 Donate
               </NavLink>
             </li>
+            <li className="nav-item px-2 py-2">
+              <NavLink to="/homepage" className="nav-link text-dark">
+                Homepage
+              </NavLink>
+            </li>
           </ul>
         </Navbar.Collapse>
       </Container>

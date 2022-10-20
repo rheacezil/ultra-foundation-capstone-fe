@@ -209,7 +209,7 @@
 /* Discover */
 
 .discover {
-  margin-top: 50px;
+  margin-top: 25px;
 }
 
 .seperator-two{
@@ -264,5 +264,14 @@
   font-size: 60px;
 }
 
+/* Activities Available */
 
+.seperator-two{
+  background-color: #ffc107;
+  width: 711px;
+  height: 1px;
+  margin:auto;
+  margin-bottom: 30px;
+  margin-top: -3px;
+}
 

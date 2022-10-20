@@ -7,11 +7,11 @@ import React, { useEffect } from "react";
 // import { bindActionCreators } from "redux";
 // import { auth, db } from "../../firebase";
 // import * as actionUser from "../../redux/actions/actionUser";
-import NavbarHome from "../NavbarHome";
 import HeroHome from "../HeroHome";
 import Activities from "../Activities";
-import Discover from "../Discover";
 import Footer from "../Footer";
+import NavHome from "../NavHome";
+import AvailableActFund from "../AvailableActFund";
 
 export default function Homepage() {
   // const [user] = useAuthState(auth);
@@ -33,10 +33,10 @@ export default function Homepage() {
 
   return (
     <>
-      <NavbarHome />
+      <NavHome />
       <HeroHome />
       <Activities />
-      <Discover />
+      <AvailableActFund />
       <Footer />
     </>
   );
