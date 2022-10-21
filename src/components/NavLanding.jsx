@@ -54,7 +54,7 @@ export default function NavLanding() {
         <Navbar.Collapse id="navMenu">
           <ul className="navbar-nav ms-auto text-center">
             <li className="nav-item px-2 py-2">
-              <NavLink to="/" className="nav-link text-dark">
+              <NavLink to="/homepage" className="nav-link text-dark">
                 HOME
               </NavLink>
             </li>

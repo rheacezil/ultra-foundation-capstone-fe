@@ -1,7 +1,8 @@
-import { HelpOutline } from "@mui/icons-material";
+import { HelpOutline, NavigateBefore } from "@mui/icons-material";
 import {
   Autocomplete,
   Checkbox,
+  IconButton,
   TextField,
   Tooltip,
   Zoom,
@@ -51,7 +52,16 @@ export default function DonateButtonModal() {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title className="lead">Ultra Foundation</Modal.Title>
+          <Modal.Title className="lead">
+            {count === 3 ? (
+              <span>
+                <IconButton>
+                  <NavigateBefore onClick={handlePrev} />
+                </IconButton>
+              </span>
+            ) : null}
+            Ultra Foundation
+          </Modal.Title>
         </Modal.Header>
 
         {count === 1 ? (

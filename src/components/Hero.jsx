@@ -39,9 +39,6 @@ export default function Hero() {
                     Start where you are. <br /> Use what you have. <br />
                     Do what you can.
                   </p>
-                  <a href="#" className="btn">
-                    Read More
-                  </a>
                   {/* <hr className="d-lg-none d-md-none" /> */}
                 </div>
               </div>
@@ -57,10 +54,6 @@ export default function Hero() {
                     Giving is about making a difference. <br />
                     It is the greatest act of grace.
                   </p>
-                  <a href="#" className="btn">
-                    Read More
-                  </a>
-                  {/* <hr className="d-lg-none d-md-none" /> */}
                 </div>
               </div>
               <div className="col-md-4 col-sm-12">
@@ -75,9 +68,6 @@ export default function Hero() {
                     The greatest good is what we do for one another. Every
                     charitable act makes a difference.
                   </p>
-                  <a href="#" className="btn">
-                    Read More
-                  </a>
                 </div>
               </div>
             </div>

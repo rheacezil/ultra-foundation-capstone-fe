@@ -29,6 +29,7 @@ function App() {
             <Route path="/admin" element={<Admin />} />
             <Route path="/fundraiser" element={<AdminFundraisers />} />
             <Route path="/program" element={<AdminPrograms />} />
+            <Route path="/homepage" element={<Homepage />} />
           </Routes>
         </BrowserRouter>
       </div>

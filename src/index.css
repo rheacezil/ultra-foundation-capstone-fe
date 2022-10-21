@@ -14,9 +14,9 @@ body {
 }
 
 .btn:hover {
-    background-color: whitesmoke;
+    background-color: #FFB200;
     color: black;
-    border: whitesmoke;
+    border: #FFB200;
 
 }
 .btn {

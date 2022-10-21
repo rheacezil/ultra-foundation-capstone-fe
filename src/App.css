@@ -54,6 +54,8 @@
 }
 
 /* ------- HOMEPAGE ------- */
+
+
 /* Volunteer Programs */
 .program-overlay {
     position: absolute;
@@ -110,3 +112,166 @@
 .donate-form{
     margin-top: 104px;
 }
+
+/* NavBar */
+
+.drop{
+  border-color: #ffc107;
+}
+
+
+/* Profile */
+
+.bor {
+  height: 300px;
+  width: 300px;
+  background: url();
+  background-size: contain;
+  margin-left: -98px;
+  margin-top: -100px;
+
+}
+
+.p-name {
+  margin-top: 80px;
+  margin-left: 130px;
+}
+
+/* Activities */
+
+.event{
+  padding-top: 100px;
+}
+
+ .event-card{
+ padding-right: 15px;
+} 
+
+.seperator{
+  background-color: #ffc107;
+  width: 300px;
+  height: 3px;
+  margin:auto;
+  margin-bottom: 30px;
+  margin-top: 25px;
+}
+
+.actfont{
+  margin-top: 90px;
+  font-size: 40px;
+}
+
+.act-card{
+  margin-bottom: 30px;
+
+} 
+
+ .act-img-box{
+  position: relative;
+  display: block;
+}
+.act-img{
+  position: relative;
+  display: block;
+  background: var(--thm-black);
+  overflow: hidden;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* volunteer Card */
+
+.card:hover {
+  box-shadow: 10px 10px 15px rgba(179, 140, 13, 0.493);;
+}
+
+.card:hover .card-img {
+  transform: scale(1.1);
+  transition: all 0.4s ease;
+}
+
+.card-date{
+  top: 20px;
+  left: -20px;
+  height: 62px;
+  width: 62px;
+  background: #ffc107;
+  color: rgb(66, 64, 64);
+  border-radius: 14%;
+}
+
+.text-h:hover {
+  color: #FF6D28 !important;
+  transition: all 0.4s ease;
+  
+}
+
+/* Discover */
+
+.discover {
+  margin-top: 25px;
+}
+
+.seperator-two{
+  background-color: #ffc107;
+  width: 3px;
+  height: 300px;
+  margin:auto;
+  margin-bottom: 30px;
+  margin-top: 25px;
+}
+
+.dis-box{
+
+  height: 400px;
+  width: 600px;
+  background-color: #FFD24C;
+}
+
+.icon {
+  padding-left: 14%;
+}
+
+.text{
+  font-family:  'Marcellus', serif;
+}
+
+/* dashboard */
+
+.sidebar{
+  margin-top: 108px;
+  height: 690px;
+  width: 300px;
+  background-color: #fcd04c;
+}
+.sb-container {
+  padding: 10px;
+  padding-top: 5px;
+}
+
+/* HeroHome */
+#herohome {
+  background: url(../public/images/dash3.jpg) top/cover;
+  background-attachment: fixed;
+  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.664);
+  height: 550px;
+  
+}
+
+#herohome h1 {
+  font-family: var(--lg-font);
+  font-weight: 500 !important;
+  font-size: 60px;
+}
+
+/* Activities Available */
+
+.seperator-two{
+  background-color: #ffc107;
+  width: 711px;
+  height: 1px;
+  margin:auto;
+  margin-bottom: 30px;
+  margin-top: -3px;
+}
+
