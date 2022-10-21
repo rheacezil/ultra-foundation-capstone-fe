@@ -10,8 +10,8 @@ import React, { useEffect } from "react";
 import HeroHome from "../HeroHome";
 import Activities from "../Activities";
 import Footer from "../Footer";
-import NavHome from "../NavHome";
 import AvailableActFund from "../AvailableActFund";
+import NavigationBar from "../NavigationBar";
 
 export default function Homepage() {
   // const [user] = useAuthState(auth);
@@ -33,7 +33,7 @@ export default function Homepage() {
 
   return (
     <>
-      <NavHome />
+      <NavigationBar />
       <HeroHome />
       <Activities />
       <AvailableActFund />

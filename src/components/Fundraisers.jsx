@@ -47,7 +47,7 @@ export default function Fundaraisers() {
   const renderFundraisers = () => {
     return fundraisers.map((fundraisers) => (
       <div
-        className="col-sm-6 col-lg-4 card position-relative mx-3 my-3"
+        className="col-sm-12 col-lg-4 card position-relative mx-3 my-3"
         key={fundraisers.fundraiserId}
       >
         <img
