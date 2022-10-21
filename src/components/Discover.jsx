@@ -7,7 +7,7 @@ import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutli
 
 export default function Discover() {
   return (
-    <section className="py-5 activities">
+    <section className="py-2 activities">
       <div className="discover mb-5 text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
         <Container>
           <div className="text-center">

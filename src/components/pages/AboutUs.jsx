@@ -1,3 +1,4 @@
+import { Divider } from "@mui/material";
 import React from "react";
 import About from "../About";
 import Discover from "../Discover";
@@ -10,6 +11,7 @@ export default function AboutUs() {
     <>
       <NavLanding />
       <About />
+      <hr />
       <Discover />
       <Newsletter />
       <Footer />

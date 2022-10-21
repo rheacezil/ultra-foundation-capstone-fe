@@ -9,6 +9,7 @@ import axios from "axios";
 export default function AdminPrograms() {
   const [programName, setProgramName] = useState("");
   const [description, setDescription] = useState("");
+
   const programList = useSelector((state) => state.programList);
   const { getAllPrograms, addProgram, deleteProgram } = bindActionCreators(
     actionProgram,
