@@ -91,7 +91,7 @@ export default function AdminPrograms() {
 
     // Return statement
     return (
-      <div className="card h-100 text-center p-5 shadow mb-5 bg-body rounded">
+      <div className="card h-100 text-center w-100 p-1 shadow mb-5 bg-body rounded">
         <img
           src={
             program.imageLink
@@ -100,13 +100,14 @@ export default function AdminPrograms() {
           }
           alt={program.programName}
           {...getRootProps()}
+          className="img-fluid h-100 w-100 border border-warning"
         />
         <div className="card-body">
           <h5 className="card-title mb-1">{program?.programName}</h5>
           <p className="card-title mb-1 text-muted">{program?.description}</p>
 
           <button
-            className="btn btn-md px-5 bg-warning text-center text-white "
+            className="btn btn-md bg-warning text-center text-white "
             onClick={() => deleteProgram(program.programId)}
           >
             DELETE
@@ -169,24 +170,19 @@ export default function AdminPrograms() {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <div className="col-12 d-flex flex-wrap justify-content-center">
+              <div className="d-flex flex-wrap justify-content-center">
                 <button
-                  className="btn btn-lg px-5 bg-warning text-center text-white "
+                  className="btn btn-lg px-5 bg-warning text-center text-white mb-3 "
                   onClick={handleSubmit}
                 >
                   Upload
                 </button>
               </div>
             </Form>
-            <hr />
-            <div className="row justify-content-center">{renderPrograms()}</div>
           </div>
-          <div className="col-md-6 mb-5">
-            <img
-              src="/images/empty.jpg"
-              className="img-fluid h-100 w-100 border border-warning"
-            />
-          </div>
+
+          <hr />
+          <div className="row justify-content-center">{renderPrograms()}</div>
         </div>
       </div>
     </section>

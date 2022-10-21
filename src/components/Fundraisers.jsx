@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { fundraisers } from "../enums";
+
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actionFundraisers from "../redux/actions/actionFundraiser";
 // import { renderLoading } from "../loaders";
 
 // icons
@@ -13,6 +16,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Fundaraisers() {
+  const [fundraiser, setFundraisers] = useState([]);
+  const { getAllFundraisers } = bindActionCreators(
+    actionFundraisers,
+    useDispatch()
+  );
+
+  useEffect(() => {
+    getAllFundraisers().then((response) => {
+      setFundraisers(response ? response.payload : []);
+    });
+  }, []);
   //   const [loading, setLoading] = useState(false);
   //   useEffect(() => {
   //     setLoading(true);
@@ -21,12 +35,20 @@ export default function Fundaraisers() {
   //     }, 2000);
   //   }, []);
   const renderFundRaisers = () => {
-    return fundraisers.map((item) => (
+    return fundraiser.map((fundraiser) => (
       <div
         className="col-md-6 col-lg-4 card position-relative border-0 my-3"
-        key={item.id}
+        key={fundraiser.fundraiserId}
       >
-        <img src={item.image} className="pt-3" alt={item.title} />
+        <img
+          src={
+            fundraiser.imageLink
+              ? `https://ultra-foundation-capstone.herokuapp.com/fundraiser/${fundraiser.fundraiserId}/download`
+              : "/images/empty.jpg"
+          }
+          className="pt-3"
+          alt={fundraiser.fundraiserName}
+        />
         <span className="position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
           <Link to="/donate" className="btn btn-warning">
             <FontAwesomeIcon icon={faPlus} className="mx-1" />
@@ -38,22 +60,22 @@ export default function Fundaraisers() {
             className="progress-bar progress-bar-striped progress-bar-animated bg-warning text-dark justify-content-center"
             role="progressbar"
             aria-label="Warning striped example"
-            style={{ width: `${item.progress}` }}
+            // style={{ width: `${item.progress}` }}
             aria-valuenow="75"
             aria-valuemin="0"
             aria-valuemax="100"
           >
-            {item.progress}
+            {fundraiser.progress}
           </div>
         </div>
         <div className="card-body px-0">
-          <h4 className="card-title">{item.title}</h4>
-          <p className="card-text mt-3 text-muted">{item.body}</p>
+          <h4 className="card-title">{fundraiser.fundraiserName}</h4>
+          <p className="card-text mt-3 text-muted">{fundraiser.description}</p>
           <div className="d-flex pb-3">
             <div className="w-50">
               <FontAwesomeIcon icon={faBullseye} className="text-warning" />{" "}
               Goal:
-              {"  " + item.goal}
+              {"  " + fundraiser.targetAmount}
             </div>
             <div className="w-50">
               <FontAwesomeIcon
@@ -61,14 +83,14 @@ export default function Fundaraisers() {
                 className="text-warning"
               />{" "}
               Raised:
-              {"  " + item.raised}
+              {"  " + fundraiser.amountGenerated}
             </div>
           </div>
           <Link to="/" className="btn btn-outline-dark">
             Read more
           </Link>
         </div>
-      </div >
+      </div>
     ));
   };
   return (

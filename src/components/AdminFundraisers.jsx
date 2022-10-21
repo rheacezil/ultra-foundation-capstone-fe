@@ -22,10 +22,6 @@ export default function AdminFundraisers() {
   const [invalidTargetAmount, setInvalidTargetAmount] = useState(false);
   const [invalidAmountGenerated, setInvalidAmountGenerated] = useState(false);
 
-  useEffect(() => {
-    getAllFundraisers();
-  }, []);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -111,22 +107,23 @@ export default function AdminFundraisers() {
 
     // Return statement
     return (
-      <div className="card h-100 text-center p-5 shadow mb-5 bg-body rounded">
+      <div className="card h-100 text-center shadow mb-3 bg-body rounded">
         <img
           src={
             fundraiser.imageLink
               ? `https://ultra-foundation-capstone.herokuapp.com/fundraiser/${fundraiser.fundraiserId}/download`
               : "/images/empty.jpg"
           }
+          className="w-100 h-100"
           alt={fundraiser.fundraiserName}
           {...getRootProps()}
         />
         <div className="card-body">
-          <h5 className="card-title mb-1">{fundraiser?.fundraiserName}</h5>
-          <p className="card-title mb-1 text-muted">
+          <h3 className="card-title mb-1">{fundraiser?.fundraiserName}</h3>
+
+          <p className="card-title text-start text-muted mb-1">
             {fundraiser?.description}
           </p>
-
           <button
             className="btn btn-md px-5 bg-warning text-center text-white "
             onClick={() => deleteFundraiser(fundraiser.fundraiserId)}
@@ -143,8 +140,8 @@ export default function AdminFundraisers() {
         {fundraiserList.map((fundraiser) => (
           <React.Fragment key={fundraiser.fundraiserId}>
             <div
-              className="col-md-3 mb-4"
-              style={{ height: "300px", width: "250px" }}
+              className="col-md-3 mb-4 mx-1"
+              style={{ height: "500px", width: "490px" }}
             >
               <MyDropzone {...fundraiser} />
             </div>
@@ -156,8 +153,8 @@ export default function AdminFundraisers() {
 
   return (
     <section className="bg-light pt-5">
-      <div className="d-flex justify-content-center align-items-center bg-donate">
-        <div className="row w-50 h-50 pt-5 shadow p-3 mb-5 bg-body rounded">
+      <div className="d-flex justify-content-center align-items-center">
+        <div className="row w-50 h-50 pt-5 shadow mb-5 bg-body rounded">
           <div className="col-md-6">
             <Form onSubmit={handleSubmit}>
               {/* fundraiser NAME */}
@@ -230,16 +227,11 @@ export default function AdminFundraisers() {
               </div>
             </Form>
           </div>
-          <div className="col-md-6 mb-5">
-            <img
-              src="/images/empty.jpg"
-              className="img-fluid h-100 w-100 border border-warning"
-            />
-          </div>
         </div>
-
-        <hr />
-        <div className="row justify-content-center">{renderFundraisers()}</div>
+      </div>
+      <hr />
+      <div className="row justify-content-center w-100 h-100 pt-5">
+        {renderFundraisers()}
       </div>
     </section>
   );
