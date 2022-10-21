@@ -28,6 +28,10 @@
 #fundraisers {
     background: url(../public/images/background-1.png) top/cover;
 }
+/* #fundraisers card {
+  height: 700px;
+  width: 430px;
+} */
 .progress {
     border-radius: 0px;
 }
@@ -39,6 +43,13 @@
     top: 30px;
     right: 30px;
 }
+#fundraisers .amount {
+  bottom: 1px;
+}
+/* .fundraiser-img {
+  height: 300px;
+  width: 413px;
+} */
 
 /* Newsletter  */
 #newsletter {

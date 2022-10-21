@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
@@ -16,7 +16,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Fundaraisers() {
-  const [fundraiser, setFundraisers] = useState([]);
+  const [fundraisers, setFundraisers] = useState([]);
   const { getAllFundraisers } = bindActionCreators(
     actionFundraisers,
     useDispatch()
@@ -27,6 +27,7 @@ export default function Fundaraisers() {
       setFundraisers(response ? response.payload : []);
     });
   }, []);
+
   //   const [loading, setLoading] = useState(false);
   //   useEffect(() => {
   //     setLoading(true);
@@ -34,48 +35,63 @@ export default function Fundaraisers() {
   //       setLoading(false);
   //     }, 2000);
   //   }, []);
-  const renderFundRaisers = () => {
-    return fundraiser.map((fundraiser) => (
+
+  const getProgress = () => {
+    return fundraisers.map((fundraisers) =>
+      console.log(
+        (fundraisers.amountGenerated / fundraisers.targetAmount) * 100
+      )
+    );
+  };
+
+  const renderFundraisers = () => {
+    return fundraisers.map((fundraisers) => (
       <div
-        className="col-md-6 col-lg-4 card position-relative border-0 my-3"
-        key={fundraiser.fundraiserId}
+        className="col-sm-6 col-lg-4 card position-relative mx-3 my-3"
+        key={fundraisers.fundraiserId}
       >
         <img
           src={
-            fundraiser.imageLink
-              ? `https://ultra-foundation-capstone.herokuapp.com/fundraiser/${fundraiser.fundraiserId}/download`
+            fundraisers.imageLink
+              ? `https://ultra-foundation-capstone.herokuapp.com/fundraiser/${fundraisers.fundraiserId}/download`
               : "/images/empty.jpg"
           }
-          className="pt-3"
-          alt={fundraiser.fundraiserName}
+          className="fundraiser-img img-fluid pt-3"
+          alt={fundraisers.fundraiserName}
         />
         <span className="position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
-          <Link to="/donate" className="btn btn-warning">
+          <Button className="btn btn-warning" onClick={getProgress}>
             <FontAwesomeIcon icon={faPlus} className="mx-1" />
             Donate Now
-          </Link>
+          </Button>
         </span>
         <div className="progress">
           <div
             className="progress-bar progress-bar-striped progress-bar-animated bg-warning text-dark justify-content-center"
             role="progressbar"
             aria-label="Warning striped example"
-            // style={{ width: `${item.progress}` }}
+            style={{
+              width: `${
+                (fundraisers.amountGenerated / fundraisers.targetAmount) * 100
+              }%`,
+            }}
             aria-valuenow="75"
             aria-valuemin="0"
             aria-valuemax="100"
           >
-            {fundraiser.progress}
+            {(fundraisers.amountGenerated / fundraisers.targetAmount) * 100}%
           </div>
         </div>
-        <div className="card-body px-0">
-          <h4 className="card-title">{fundraiser.fundraiserName}</h4>
-          <p className="card-text mt-3 text-muted">{fundraiser.description}</p>
-          <div className="d-flex pb-3">
+        <div className="card-body">
+          <h4 className="card-title">{fundraisers.fundraiserName}</h4>
+          <p className="card-text pb-5 text-muted">
+            {fundraisers.description.substring(0, 100)}
+          </p>
+          <div className="amount position-absolute d-flex w-100 pb-3">
             <div className="w-50">
               <FontAwesomeIcon icon={faBullseye} className="text-warning" />{" "}
               Goal:
-              {"  " + fundraiser.targetAmount}
+              {"  " + fundraisers.targetAmount}
             </div>
             <div className="w-50">
               <FontAwesomeIcon
@@ -83,12 +99,9 @@ export default function Fundaraisers() {
                 className="text-warning"
               />{" "}
               Raised:
-              {"  " + fundraiser.amountGenerated}
+              {"  " + fundraisers.amountGenerated}
             </div>
           </div>
-          <Link to="/" className="btn btn-outline-dark">
-            Read more
-          </Link>
         </div>
       </div>
     ));
@@ -103,7 +116,7 @@ export default function Fundaraisers() {
           </div>
           <div className="row pt-4">
             {/* {loading ? renderLoading() : renderFundRaisers()} */}
-            {renderFundRaisers()}
+            {renderFundraisers()}
           </div>
         </Container>
       </section>
