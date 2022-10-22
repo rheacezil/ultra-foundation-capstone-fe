@@ -14,6 +14,7 @@ import {
   faBullseye,
   faArrowUpRightDots,
 } from "@fortawesome/free-solid-svg-icons";
+import DonateButtonModal from "./DonateButtonModal";
 
 export default function Fundaraisers() {
   const [fundraisers, setFundraisers] = useState([]);
@@ -36,14 +37,6 @@ export default function Fundaraisers() {
   //     }, 2000);
   //   }, []);
 
-  const getProgress = () => {
-    return fundraisers.map((fundraisers) =>
-      console.log(
-        (fundraisers.amountGenerated / fundraisers.targetAmount) * 100
-      )
-    );
-  };
-
   const renderFundraisers = () => {
     return fundraisers.map((fundraisers) => (
       <div
@@ -59,11 +52,16 @@ export default function Fundaraisers() {
           className="fundraiser-img img-fluid pt-3"
           alt={fundraisers.fundraiserName}
         />
-        <span className="position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
-          <Button className="btn btn-warning" onClick={getProgress}>
+
+        <span className="position-absolute d-flex align-items-center justify-content-center text-dark fs-4">
+          {/* <Button className="btn btn-warning border-0" onClick={getProgress}>
             <FontAwesomeIcon icon={faPlus} className="mx-1" />
             Donate Now
-          </Button>
+          </Button> */}
+          {/* <div className="bg-warning mx-0">
+            <FontAwesomeIcon icon={faPlus} className="mx-1" />
+          </div> */}
+          <DonateButtonModal />
         </span>
         <div className="progress">
           <div

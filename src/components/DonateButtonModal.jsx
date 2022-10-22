@@ -7,16 +7,31 @@ import {
   Tooltip,
   Zoom,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actionFundraisers from "../redux/actions/actionFundraiser";
 import PaypalCheckoutButton from "./PaypalCheckoutButton";
 
 export default function DonateButtonModal() {
   const [count, setCount] = useState(1);
   const [show, setShow] = useState(false);
-  const [fundraiser, setFundraiser] = useState();
+  const [fundraiserChoice, setFundraiserChoice] = useState();
   const [amount, setAmount] = useState();
+
+  // const [fundraisers, setFundraisers] = useState([]);
+  // const [getAllFundraisers] = bindActionCreators(
+  //   actionFundraisers,
+  //   useDispatch()
+  // );
+
+  // useEffect(() => {
+  //   getAllFundraisers().then((response) => {
+  //     setFundraisers(response ? response.payload : []);
+  //   });
+  // }, []);
 
   const product = {
     description: "Fundraiser description",
@@ -34,15 +49,42 @@ export default function DonateButtonModal() {
 
   const handlePrev = () => setCount(count - 1);
 
+  // fix fix fix fix fix fix fix
+  // make the fundraiser names render on the autocomplete selection
+  // make it iterable
+  const renderFundraisers = () => {
+    return fundraisers.map((fundraisers) => (
+      <Autocomplete
+        inputValue={fundraiserChoice}
+        onInputChange={(event, newFundraiser) => {
+          setFundraiserChoice(newFundraiser);
+        }}
+        disablePortal
+        id="fundraiser-selector"
+        className="pt-4 pb-5"
+        options={fundraisers.fundraiserName}
+        sx={{ width: 355 }}
+        renderInput={(params) => <TextField {...params} label="Fundraiser" />}
+      />
+    ));
+  };
+
   return (
     <>
       <Button
         variant="warning"
-        className="btn btn-lg mx-2 fw-light"
+        className="btn btn-lg mx-2 fw-light border-0"
+        onClick={handleShow}
+      >
+        + Donate
+      </Button>
+      {/* <Button
+        variant="warning"
+        className="btn btn-lg mx-2 fw-light border-0"
         onClick={handleShow}
       >
         Donate
-      </Button>
+      </Button> */}
 
       <Modal
         show={show}
@@ -55,8 +97,8 @@ export default function DonateButtonModal() {
           <Modal.Title className="lead">
             {count === 3 ? (
               <span>
-                <IconButton>
-                  <NavigateBefore onClick={handlePrev} />
+                <IconButton onClick={handlePrev}>
+                  <NavigateBefore />
                 </IconButton>
               </span>
             ) : null}
@@ -67,10 +109,10 @@ export default function DonateButtonModal() {
         {count === 1 ? (
           <Modal.Body>
             <h3 className="lead">For what cause will your donation be?</h3>
-            <Autocomplete
-              inputValue={fundraiser}
+            {/* <Autocomplete
+              inputValue={fundraiserChoice}
               onInputChange={(event, newFundraiser) => {
-                setFundraiser(newFundraiser);
+                setFundraiserChoice(newFundraiser);
               }}
               disablePortal
               id="fundraiser-selector"
@@ -80,9 +122,10 @@ export default function DonateButtonModal() {
               renderInput={(params) => (
                 <TextField {...params} label="Fundraiser" />
               )}
-            />
+            /> */}
+            {renderFundraisers}
 
-            {fundraiser ? (
+            {fundraiserChoice ? (
               <Button
                 variant="warning"
                 className="text-white w-100 mt-5"
@@ -176,7 +219,7 @@ export default function DonateButtonModal() {
               <div className="col-lg-6 my-3 px-5">
                 <Button
                   variant="secondary"
-                  className="w-100"
+                  className="w-100 border-0"
                   onClick={handlePrev}
                 >
                   Back
@@ -190,6 +233,7 @@ export default function DonateButtonModal() {
                     onClick={handleNext}
                   >
                     Next
+                    {/* {console.log(amount)} */}
                   </Button>
                 </div>
               ) : (

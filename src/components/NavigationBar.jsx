@@ -34,7 +34,7 @@ export default function NavigationBar() {
       <Container>
         <NavLink
           to="/"
-          className="navbar-brand d-flex align-items-center justify-content-between"
+          className="navbar-brand d-flex align-items-center justify-content-between border-0"
         >
           <img src={"images/site-icon-dark.png"} alt="Site Icon" />
           <span id="brand-name" className="mx-3">
@@ -50,8 +50,8 @@ export default function NavigationBar() {
           <ul className="navbar-nav ms-auto text-center">
             <li className="nav-item px-2 py-2">
               <NavLink
-                to="/signup"
-                className="btn position-relative"
+                to="/about"
+                className="btn position-relative border-0"
                 type="button"
               >
                 <span className="nav-btn-label"> ABOUT</span>
@@ -72,7 +72,7 @@ export default function NavigationBar() {
                   {localStorage.email === "admin@gmail.com" && (
                     <NavLink
                       to="/admin"
-                      className="btn position-relative"
+                      className="btn position-relative border-0"
                       type="button"
                     >
                       <span className="nav-btn-label"> ADMIN</span>
@@ -81,7 +81,7 @@ export default function NavigationBar() {
 
                   <NavLink
                     to="/login"
-                    className="btn position-relative"
+                    className="btn position-relative border-0"
                     type="button"
                     onClick={logout}
                   >

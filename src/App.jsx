@@ -16,7 +16,10 @@ import LandingPage from "./components/pages/LandingPage";
 function App() {
   return (
     <PayPalScriptProvider
-      options={{ "client-id": process.env.PAYPAL_CLIENT_ID }}
+      options={{
+        "client-id":
+          "AcyEj6OMQH2qyhbcm4fsVqF0Q3h-iT-CWiWT9-CcS6hlvoROVejX8CeFYyJ1DvKK7MLli_5LG2ZC0Ih6",
+      }}
     >
       <div className="App">
         <BrowserRouter>

@@ -13,7 +13,10 @@ export default function Hero() {
               “You have not lived today until you have done something for
               someone who can never repay you.”
             </h1>
-            <Link to="/signup" className="btn btn-lg btn-warning mx-2 fw-light">
+            <Link
+              to="/signup"
+              className="btn btn-lg btn-warning mx-2 fw-light border-0"
+            >
               Join Us!
             </Link>
             {/* <Link to="/donate" className="btn btn-lg btn-warning mx-2 fw-light">
