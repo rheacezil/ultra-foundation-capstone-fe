@@ -53,7 +53,7 @@ export default function Fundaraisers() {
         <img
           src={
             fundraisers.imageLink
-              ? `https://ultra-foundation-capstone.herokuapp.com/fundraiser/${fundraisers.fundraiserId}/download`
+              ? `https://capstone-ultra-foundation.herokuapp.com/fundraiser/${fundraisers.fundraiserId}/download`
               : "/images/empty.jpg"
           }
           className="fundraiser-img img-fluid pt-3"
@@ -85,7 +85,7 @@ export default function Fundaraisers() {
         <div className="card-body">
           <h4 className="card-title">{fundraisers.fundraiserName}</h4>
           <p className="card-text pb-5 text-muted">
-            {fundraisers.description.substring(0, 100)}
+            {/* {fundraisers.description.substring(0, 100)} */}
           </p>
           <div className="amount position-absolute d-flex w-100 pb-3">
             <div className="w-50">

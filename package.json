@@ -1,7 +1,7 @@
 {
   "name": "ultra-foundation-capstone-fe",
   "version": "0.1.0",
-  "proxy": "https://ultra-foundation-capstone.herokuapp.com",
+  "proxy": "https://capstone-ultra-foundation.herokuapp.com",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",

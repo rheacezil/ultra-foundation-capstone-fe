@@ -85,7 +85,7 @@ export default function AdminFundraisers() {
       // Upload to s3
       axios
         .put(
-          `https://ultra-foundation-capstone.herokuapp.com/fundraiser/${fundraiser.fundraiserId}/upload`,
+          `https://capstone-ultra-foundation.herokuapp.com/fundraiser/${fundraiser.fundraiserId}/upload`,
           formData,
           {
             headers: {
@@ -111,7 +111,7 @@ export default function AdminFundraisers() {
         <img
           src={
             fundraiser.imageLink
-              ? `https://ultra-foundation-capstone.herokuapp.com/fundraiser/${fundraiser.fundraiserId}/download`
+              ? `https://capstone-ultra-foundation.herokuapp.com/fundraiser/${fundraiser.fundraiserId}/download`
               : "/images/empty.jpg"
           }
           className="w-100 h-100"

@@ -9,6 +9,11 @@ import axios from "axios";
 export default function AdminPrograms() {
   const [programName, setProgramName] = useState("");
   const [description, setDescription] = useState("");
+  const [programTime, setProgramTime] = useState(null);
+  const [programDate, setProgramDate] = useState(null);
+  const [pointsToEarn, setPointsToEarn] = useState(null);
+  const [duration, setDuration] = useState(null);
+  const [location, setLocation] = useState("");
 
   const programList = useSelector((state) => state.programList);
   const { getAllPrograms, addProgram, deleteProgram } = bindActionCreators(
@@ -70,7 +75,7 @@ export default function AdminPrograms() {
       // Upload to s3
       axios
         .put(
-          `https://ultra-foundation-capstone.herokuapp.com/program/${program.programId}/upload`,
+          `https://capstone-ultra-foundation.herokuapp.com/program/${program.programId}/upload`,
           formData,
           {
             headers: {
@@ -96,7 +101,7 @@ export default function AdminPrograms() {
         <img
           src={
             program.imageLink
-              ? `https://ultra-foundation-capstone.herokuapp.com/program/${program.programId}/download`
+              ? `https://capstone-ultra-foundation.herokuapp.com/program/${program.programId}/download`
               : "/images/empty.jpg"
           }
           alt={program.programName}
