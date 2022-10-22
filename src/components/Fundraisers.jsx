@@ -54,13 +54,6 @@ export default function Fundaraisers() {
         />
 
         <span className="position-absolute d-flex align-items-center justify-content-center text-dark fs-4">
-          {/* <Button className="btn btn-warning border-0" onClick={getProgress}>
-            <FontAwesomeIcon icon={faPlus} className="mx-1" />
-            Donate Now
-          </Button> */}
-          {/* <div className="bg-warning mx-0">
-            <FontAwesomeIcon icon={faPlus} className="mx-1" />
-          </div> */}
           <DonateButtonModal />
         </span>
         <div className="progress">
@@ -83,7 +76,7 @@ export default function Fundaraisers() {
         <div className="card-body">
           <h4 className="card-title">{fundraisers.fundraiserName}</h4>
           <p className="card-text pb-5 text-muted">
-            {/* {fundraisers.description.substring(0, 100)} */}
+            {fundraisers.description.substring(0, 100)}
           </p>
           <div className="amount position-absolute d-flex w-100 pb-3">
             <div className="w-50">

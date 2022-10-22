@@ -7,7 +7,9 @@ import {
   Tooltip,
   Zoom,
 } from "@mui/material";
+import { PayPalButtons } from "@paypal/react-paypal-js";
 import React, { useEffect, useState } from "react";
+import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch } from "react-redux";
@@ -21,54 +23,58 @@ export default function DonateButtonModal() {
   const [fundraiserChoice, setFundraiserChoice] = useState();
   const [amount, setAmount] = useState();
 
-  // const [fundraisers, setFundraisers] = useState([]);
-  // const [getAllFundraisers] = bindActionCreators(
-  //   actionFundraisers,
-  //   useDispatch()
-  // );
+  const [fundraisers, setFundraisers] = useState([]);
+  const { getAllFundraisers } = bindActionCreators(
+    actionFundraisers,
+    useDispatch()
+  );
 
-  // useEffect(() => {
-  //   getAllFundraisers().then((response) => {
-  //     setFundraisers(response ? response.payload : []);
-  //   });
-  // }, []);
+  // donor details
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [company, setCompany] = useState("");
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    getAllFundraisers().then((response) => {
+      setFundraisers(response ? response.payload : []);
+    });
+  }, []);
 
   const product = {
-    description: "Fundraiser description",
+    description: "fundraiserChoice",
     price: amount,
   };
 
-  const handleClose = () => {
-    setShow(false);
-    setCount(1);
+  const handleShow = () => {
+    setShow(true);
+    console.log(fundraisers);
   };
-  const handleShow = () => setShow(true);
 
   // create a checkIfValid function to see if there are input datas
   const handleNext = () => setCount(count + 1);
 
   const handlePrev = () => setCount(count - 1);
 
-  // fix fix fix fix fix fix fix
-  // make the fundraiser names render on the autocomplete selection
-  // make it iterable
-  const renderFundraisers = () => {
-    return fundraisers.map((fundraisers) => (
-      <Autocomplete
-        inputValue={fundraiserChoice}
-        onInputChange={(event, newFundraiser) => {
-          setFundraiserChoice(newFundraiser);
-        }}
-        disablePortal
-        id="fundraiser-selector"
-        className="pt-4 pb-5"
-        options={fundraisers.fundraiserName}
-        sx={{ width: 355 }}
-        renderInput={(params) => <TextField {...params} label="Fundraiser" />}
-      />
-    ));
+  const options = Array.from(fundraisers).map(
+    (fundraisers) => fundraisers.fundraiserName
+  );
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(amount, firstname, lastname, company, email);
   };
 
+  const handleClose = () => {
+    setShow(false);
+    setCount(1);
+    setFundraiserChoice("");
+    setAmount();
+    setFirstname("");
+    setLastname("");
+    setCompany("");
+    setEmail("");
+  };
   return (
     <>
       <Button
@@ -78,13 +84,6 @@ export default function DonateButtonModal() {
       >
         + Donate
       </Button>
-      {/* <Button
-        variant="warning"
-        className="btn btn-lg mx-2 fw-light border-0"
-        onClick={handleShow}
-      >
-        Donate
-      </Button> */}
 
       <Modal
         show={show}
@@ -109,7 +108,7 @@ export default function DonateButtonModal() {
         {count === 1 ? (
           <Modal.Body>
             <h3 className="lead">For what cause will your donation be?</h3>
-            {/* <Autocomplete
+            <Autocomplete
               inputValue={fundraiserChoice}
               onInputChange={(event, newFundraiser) => {
                 setFundraiserChoice(newFundraiser);
@@ -117,13 +116,12 @@ export default function DonateButtonModal() {
               disablePortal
               id="fundraiser-selector"
               className="pt-4 pb-5"
-              options={fundraisers}
+              options={options}
               sx={{ width: 355 }}
               renderInput={(params) => (
                 <TextField {...params} label="Fundraiser" />
               )}
-            /> */}
-            {renderFundraisers()}
+            />
 
             {fundraiserChoice ? (
               <Button
@@ -225,7 +223,7 @@ export default function DonateButtonModal() {
                   Back
                 </Button>
               </div>
-              {amount ? (
+              {amount && amount != 0 ? (
                 <div className="col-lg-6 my-3 px-5">
                   <Button
                     variant="warning"
@@ -253,10 +251,7 @@ export default function DonateButtonModal() {
 
         {count === 3 ? (
           <Modal.Body>
-            <p className="lead fw-bold fs-6 text-center">
-              Who will be donating today?
-            </p>
-            <div className="row pb-3">
+            {/* <div className="row pb-3">
               <div className="col">
                 <TextField
                   variant="outlined"
@@ -336,31 +331,73 @@ export default function DonateButtonModal() {
               <div className="paypal-button-container col-12 w-100">
                 <PaypalCheckoutButton product={product} />
               </div>
-            </div>
+            </div> */}
+            {localStorage.email ? (
+              <>
+                <p className="text-center">
+                  Hello there! Please confirm the details before clicking the
+                  donate button.
+                </p>
+                <p className="fw-bold text-center">
+                  Fundraiser:{"    "}
+                  <span className="lead fs-4 text-warning">
+                    {fundraiserChoice}
+                  </span>
+                </p>
+                <p className="fw-bold text-center">
+                  Donation Amount:{"    "}
+                  <span className="lead fs-4 text-warning">${amount}</span>
+                </p>
+                <PaypalCheckoutButton product={product} />
+              </>
+            ) : (
+              <>
+                <p className="lead fw-bold fs-6 text-center">
+                  Who will be donating today?
+                </p>
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group controlId="formFirstname">
+                    <Form.Control
+                      placeholder="First Name"
+                      value={firstname}
+                      onChange={(e) => setFirstname(e.target.value)}
+                    ></Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="formLastname">
+                    <Form.Control
+                      placeholder="Last Name"
+                      value={lastname}
+                      onChange={(e) => setLastname(e.target.value)}
+                    ></Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="formCompany">
+                    <Form.Control
+                      placeholder="Company"
+                      value={company}
+                      onChange={(e) => setCompany(e.target.value)}
+                    ></Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="formEmail">
+                    <Form.Control
+                      type="email"
+                      placeholder="Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    ></Form.Control>
+                  </Form.Group>
+                </Form>
+              </>
+            )}
           </Modal.Body>
         ) : null}
-
-        {/* <Modal.Footer>
-          {count === 2 || count === 3 ? (
-            <Button variant="secondary" onClick={handlePrev}>
-              Back
-            </Button>
-          ) : null}
-
-          {count <= 2 ? (
-            <Button variant="warning" onClick={handleNext}>
-              Next
-            </Button>
-          ) : null}
-        </Modal.Footer> */}
       </Modal>
     </>
   );
 }
 
 // ****** This data should come from the database ******* //
-const fundraisers = [
-  { label: "Project Aral" },
-  { label: "Project Ngiti" },
-  { label: "Project Linis" },
-];
+// const fundraisers = [
+//   { label: "Project Aral" },
+//   { label: "Project Ngiti" },
+//   { label: "Project Linis" },
+// ];

@@ -26,6 +26,11 @@ export default function PaypalCheckoutButton(props) {
   }
   return (
     <PayPalButtons
+      style={{
+        layout: "horizontal",
+        height: 48,
+        tagline: false,
+      }}
       onClick={(data, actions) => {
         // Validate on button click, client or server side
       }}

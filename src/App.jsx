@@ -12,6 +12,7 @@ import Login from "./components/pages/authentication/Login";
 import Signup from "./components/pages/authentication/Signup";
 import Homepage from "./components/pages/HomePage";
 import LandingPage from "./components/pages/LandingPage";
+import TestingPage from "./components/pages/TestingPage";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/fundraiser" element={<AdminFundraisers />} />
             <Route path="/program" element={<AdminPrograms />} />
             <Route path="/homepage" element={<Homepage />} />
+            <Route path="/test" element={<TestingPage />} />
           </Routes>
         </BrowserRouter>
       </div>
