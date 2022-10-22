@@ -123,7 +123,7 @@ export default function DonateButtonModal() {
                 <TextField {...params} label="Fundraiser" />
               )}
             /> */}
-            {renderFundraisers}
+            {renderFundraisers()}
 
             {fundraiserChoice ? (
               <Button

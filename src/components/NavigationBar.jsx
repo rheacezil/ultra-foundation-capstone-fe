@@ -62,6 +62,13 @@ export default function NavigationBar() {
               {localStorage.email ? (
                 <>
                   <NavLink
+                    to="/homepage"
+                    className="btn position-relative border-0"
+                    type="button"
+                  >
+                    <span className="nav-btn-label"> HOME</span>
+                  </NavLink>
+                  <NavLink
                     to="/"
                     className="btn position-relative border-0"
                     type="button"
