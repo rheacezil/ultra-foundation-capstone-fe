@@ -106,6 +106,7 @@ export default function AdminFundraisers() {
     const { getRootProps } = useDropzone({ onDrop });
 
     // Return statement
+
     return (
       <div className="card h-100 text-center shadow mb-3 bg-body rounded">
         <img

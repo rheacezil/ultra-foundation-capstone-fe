@@ -1,48 +1,47 @@
 /* Hero */
 #hero {
-    background: url(../public/images/hero-cover.png) top/cover;
-    box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.664);
-    
+  background: url(../public/images/hero-cover.png) top/cover;
+  background-attachment: fixed;
+  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.664);
 }
 
 #hero h1 {
-    font-family: var(--lg-font);
-    font-weight: 400 !important;
+  font-family: var(--lg-font);
+  font-weight: 400 !important;
 }
 
 /* Promo */
 #promo {
-    margin-top: -200px;
-    min-height: 360px;
+  margin-top: -200px;
+  min-height: 360px;
 }
 .promo-wrap {
-    z-index: 99;
+  z-index: 99;
 }
 
 #promo .row {
-    background-color: #fff;
-    box-shadow: 0px 16px 28px 0px rgb(0 0 0 / 15%);
+  background-color: #fff;
+  box-shadow: 0px 16px 28px 0px rgb(0 0 0 / 15%);
 }
 
 /* Current Fundraisers */
 #fundraisers {
-    background: url(../public/images/background-1.png) top/cover;
-  
+  background: url(../public/images/background-1.png) top/cover;
 }
 #fundraisers .card {
   height: 600px;
   width: 430px;
 }
 .progress {
-    border-radius: 0px;
+  border-radius: 0px;
 }
 .progress-bar {
-    text-align: end;
-    padding-right: 10px;
+  text-align: end;
+  padding-right: 10px;
 }
 #fundraisers span {
-    top: 30px;
-    right: 30px;
+  top: 30px;
+  right: 30px;
 }
 #fundraisers .amount {
   bottom: 1px;
@@ -54,49 +53,49 @@
 
 /* Newsletter  */
 #newsletter {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 #newsletter .input-group {
-    max-width: 500px;
+  max-width: 500px;
 }
 
 #newsletter .form-control {
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
 
 /* ------- HOMEPAGE ------- */
 
-
 /* Volunteer Programs */
 .program-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(255, 215, 107, 0.9);
-    display: flex;
-    align-items: flex-end;
-    padding: 30px;
-    opacity: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 215, 107, 0.9);
+  display: flex;
+  align-items: flex-end;
+  padding: 30px;
+  opacity: 0;
 }
 
 .program-item:hover .program-overlay {
-    opacity: 1;
+  opacity: 1;
 }
 
 .program-item:hover img {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
-.program-item img, .program-item .program-overlay {
-    transition: all 0.4s ease;
+.program-item img,
+.program-item .program-overlay {
+  transition: all 0.4s ease;
 }
 
 /* Badges */
 #badges {
-    background: url(../public/images/background-1.png) top/cover;
+  background: url(../public/images/background-1.png) top/cover;
 }
 
 /* .card:hover {
@@ -105,32 +104,29 @@
 } */
 
 /* Donate Page */
-.donate-bg{
-    background-image: url(../public/images/hero-cover.png);
-    box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.300);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 100%;
-    width: 100%;
-  
+.donate-bg {
+  background-image: url(../public/images/hero-cover.png);
+  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.3);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
 }
-.donate{
-    margin-top: 90px;
-    height: 100%;
-    width: 100%;
-    
+.donate {
+  margin-top: 90px;
+  height: 100%;
+  width: 100%;
 }
-.donate-form{
-    margin-top: 104px;
+.donate-form {
+  margin-top: 104px;
 }
 
 /* NavBar */
 
-.drop{
+.drop {
   border-color: #ffc107;
 }
-
 
 /* Profile */
 
@@ -141,7 +137,6 @@
   background-size: contain;
   margin-left: -98px;
   margin-top: -100px;
-
 }
 
 .p-name {
@@ -151,38 +146,37 @@
 
 /* Activities */
 
-.event{
+.event {
   padding-top: 100px;
 }
 
- .event-card{
- padding-right: 15px;
-} 
+.event-card {
+  padding-right: 15px;
+}
 
-.seperator{
+.seperator {
   background-color: #ffc107;
   width: 300px;
   height: 3px;
-  margin:auto;
+  margin: auto;
   margin-bottom: 30px;
   margin-top: 25px;
 }
 
-.actfont{
+.actfont {
   margin-top: 90px;
   font-size: 40px;
 }
 
-.act-card{
+.act-card {
   margin-bottom: 30px;
+}
 
-} 
-
- .act-img-box{
+.act-img-box {
   position: relative;
   display: block;
 }
-.act-img{
+.act-img {
   position: relative;
   display: block;
   background: var(--thm-black);
@@ -194,7 +188,7 @@
 /* volunteer Card */
 
 .card:hover {
-  box-shadow: 10px 10px 15px rgba(179, 140, 13, 0.493);;
+  box-shadow: 10px 10px 15px rgba(179, 140, 13, 0.493);
 }
 
 .card:hover .card-img {
@@ -202,7 +196,7 @@
   transition: all 0.4s ease;
 }
 
-.card-date{
+.card-date {
   top: 20px;
   left: -20px;
   height: 62px;
@@ -213,9 +207,8 @@
 }
 
 .text-h:hover {
-  color: #FF6D28 !important;
+  color: #ff6d28 !important;
   transition: all 0.4s ease;
-  
 }
 
 /* Discover */
@@ -224,33 +217,32 @@
   margin-top: 25px;
 }
 
-.seperator-two{
+.seperator-two {
   background-color: #ffc107;
   width: 3px;
   height: 300px;
-  margin:auto;
+  margin: auto;
   margin-bottom: 30px;
   margin-top: 25px;
 }
 
-.dis-box{
-
+.dis-box {
   height: 400px;
   width: 600px;
-  background-color: #FFD24C;
+  background-color: #ffd24c;
 }
 
 .icon {
   padding-left: 14%;
 }
 
-.text{
-  font-family:  'Marcellus', serif;
+.text {
+  font-family: "Marcellus", serif;
 }
 
 /* dashboard */
 
-.sidebar{
+.sidebar {
   margin-top: 108px;
   height: 690px;
   width: 300px;
@@ -267,7 +259,6 @@
   background-attachment: fixed;
   box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.664);
   height: 550px;
-  
 }
 
 #herohome h1 {
@@ -278,12 +269,15 @@
 
 /* Activities Available */
 
-.seperator-two{
+.seperator-two {
   background-color: #ffc107;
   width: 711px;
   height: 1px;
-  margin:auto;
+  margin: auto;
   margin-bottom: 30px;
   margin-top: -3px;
 }
 
+.title-fil {
+  font-size: x-large;
+}

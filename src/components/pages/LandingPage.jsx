@@ -1,4 +1,5 @@
 import React from "react";
+import AllVolunteerProg from "../AllVolunteerProg";
 import Footer from "../Footer";
 import Fundaraisers from "../Fundraisers";
 import Hero from "../Hero";
@@ -10,6 +11,7 @@ export default function LandingPage() {
     <>
       <NavigationBar />
       <Hero />
+      <AllVolunteerProg />
       <Fundaraisers />
       <Scholars />
       <Footer />

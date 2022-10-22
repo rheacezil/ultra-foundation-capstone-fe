@@ -1,16 +1,21 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
+import dayjs from "dayjs";
+import { Button, Card, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionProgram from "../redux/actions/actionProgram";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
+import { LocalizationProvider } from "@mui/x-date-pickers-pro";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
+import TextField from "@mui/material/TextField";
+import EventOutlinedIcon from "@mui/icons-material/EventOutlined";
 
 export default function AdminPrograms() {
   const [programName, setProgramName] = useState("");
   const [description, setDescription] = useState("");
   const [programTime, setProgramTime] = useState(null);
-  const [programDate, setProgramDate] = useState(null);
   const [pointsToEarn, setPointsToEarn] = useState(null);
   const [duration, setDuration] = useState(null);
   const [location, setLocation] = useState("");
@@ -20,6 +25,11 @@ export default function AdminPrograms() {
     actionProgram,
     useDispatch()
   );
+  const [programDate, setProgramDate] = useState(dayjs("2022-01-01T21:11:54"));
+
+  const handleChange = (programDate) => {
+    setProgramDate(programDate);
+  };
 
   // Validation
   const [invalidProgramName, setInvalidProgramName] = useState(false);
@@ -111,6 +121,10 @@ export default function AdminPrograms() {
         <div className="card-body">
           <h5 className="card-title mb-1">{program?.programName}</h5>
           <p className="card-title mb-1 text-muted">{program?.description}</p>
+          <div className="py-2">
+            <EventOutlinedIcon color="warning" />
+            <span> {program?.programDate}</span>
+          </div>
 
           <button
             className="btn btn-md bg-warning text-center text-white "
@@ -146,6 +160,19 @@ export default function AdminPrograms() {
         <div className="row w-50 h-50 pt-5 shadow p-3 mb-5 bg-body rounded">
           <div className="col-md-6">
             <Form onSubmit={handleSubmit}>
+              <Form.Group controlId="formProgramDate" className="mb-3">
+                {/* Volunteer Date */}
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DesktopDatePicker
+                    label="Date desktop"
+                    inputFormat="MM/DD/YYYY"
+                    value={programDate}
+                    onChange={handleChange}
+                    renderInput={(params) => <TextField {...params} />}
+                  />
+                </LocalizationProvider>
+              </Form.Group>
+
               {/* Program NAME */}
               <Form.Group controlId="formProgramName" className="mb-3">
                 <Form.Control
