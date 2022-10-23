@@ -8,6 +8,7 @@ import { useDropzone } from "react-dropzone";
 import axios from "axios";
 import EventOutlinedIcon from "@mui/icons-material/EventOutlined";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 export default function AdminPrograms() {
   const [programName, setProgramName] = useState("");
@@ -105,7 +106,7 @@ export default function AdminPrograms() {
 
     // Return statement
     return (
-      <div className="card h-100 text-center shadow mb-3 bg-body rounded">
+      <div className="card h-100 text-start shadow mb-3 bg-body rounded">
         <img
           src={
             program.imageLink
@@ -122,6 +123,11 @@ export default function AdminPrograms() {
           <div className="py-2">
             <EventOutlinedIcon color="warning" />
             <span> {program?.createdDate}</span>
+          </div>
+          <div className="py-2">
+            {" "}
+            <AccessTimeIcon color="warning" />
+            <span> {program.programTime}</span>
           </div>
           <div className="py-2">
             <LocationOnIcon color="warning" />
