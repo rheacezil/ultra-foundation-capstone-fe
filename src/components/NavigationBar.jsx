@@ -17,7 +17,7 @@ export default function NavigationBar() {
     setTimeout(() => {
       setLoading(false);
       localStorage.removeItem("email");
-      navigate("/login");
+      navigate("/");
     }, 1000);
   };
 

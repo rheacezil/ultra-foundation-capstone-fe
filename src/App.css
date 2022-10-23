@@ -281,3 +281,8 @@
 .title-fil {
   font-size: x-large;
 }
+
+/********* DASHBOARD PAGE *********/
+#dashboard {
+  background-color: rgba(253, 245, 220, 1);
+}

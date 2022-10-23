@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -10,7 +9,6 @@ import * as actionFundraisers from "../redux/actions/actionFundraiser";
 // icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faPlus,
   faBullseye,
   faArrowUpRightDots,
 } from "@fortawesome/free-solid-svg-icons";
@@ -27,6 +25,8 @@ export default function Fundaraisers() {
     getAllFundraisers().then((response) => {
       setFundraisers(response ? response.payload : []);
     });
+
+    console.log(fundraisers);
   }, []);
 
   //   const [loading, setLoading] = useState(false);

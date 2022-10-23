@@ -1,4 +1,4 @@
-import React from "react";
+// COMPONENTS
 import AllVolunteerProg from "../AllVolunteerProg";
 import Footer from "../Footer";
 import Fundaraisers from "../Fundraisers";
@@ -6,13 +6,35 @@ import Hero from "../Hero";
 import NavigationBar from "../NavigationBar";
 import Scholars from "../Scholars";
 
+// STATE
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actionFundraisers from "../../redux/actions/actionFundraiser";
+
 export default function LandingPage() {
+  // Fundraisers
+  const [fundraisers, setFundraisers] = useState([]);
+  const { getAllFundraisers } = bindActionCreators(
+    actionFundraisers,
+    useDispatch()
+  );
+
+  useEffect(() => {
+    getAllFundraisers().then((response) => {
+      setFundraisers(response ? response.payload : []);
+    });
+
+    console.log(fundraisers);
+  }, []);
+
   return (
     <>
       <NavigationBar />
       <Hero />
       <AllVolunteerProg />
-      <Fundaraisers />
+      {fundraisers.length > 0 ? <Fundaraisers /> : null}
+
       <Scholars />
       <Footer />
     </>

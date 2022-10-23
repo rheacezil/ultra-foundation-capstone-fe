@@ -32,7 +32,6 @@ export default function DonateButtonModal() {
   // donor details
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
-  const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
 
   useEffect(() => {
@@ -48,7 +47,7 @@ export default function DonateButtonModal() {
 
   const handleShow = () => {
     setShow(true);
-    console.log(fundraisers);
+    // console.log(fundraisers);
   };
 
   // create a checkIfValid function to see if there are input datas
@@ -62,7 +61,7 @@ export default function DonateButtonModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(amount, firstname, lastname, company, email);
+    console.log(amount, firstname, lastname, email);
   };
 
   const handleClose = () => {
@@ -72,7 +71,6 @@ export default function DonateButtonModal() {
     setAmount();
     setFirstname("");
     setLastname("");
-    setCompany("");
     setEmail("");
   };
   return (
@@ -368,13 +366,6 @@ export default function DonateButtonModal() {
                       placeholder="Last Name"
                       value={lastname}
                       onChange={(e) => setLastname(e.target.value)}
-                    ></Form.Control>
-                  </Form.Group>
-                  <Form.Group controlId="formCompany">
-                    <Form.Control
-                      placeholder="Company"
-                      value={company}
-                      onChange={(e) => setCompany(e.target.value)}
                     ></Form.Control>
                   </Form.Group>
                   <Form.Group controlId="formEmail">

@@ -10,6 +10,7 @@ import AboutUs from "./components/pages/AboutUs";
 import Admin from "./components/pages/Admin";
 import Login from "./components/pages/authentication/Login";
 import Signup from "./components/pages/authentication/Signup";
+import Dashboard from "./components/pages/Dashboard";
 import Homepage from "./components/pages/HomePage";
 import LandingPage from "./components/pages/LandingPage";
 import TestingPage from "./components/pages/TestingPage";
@@ -33,6 +34,7 @@ function App() {
             <Route path="/fundraiser" element={<AdminFundraisers />} />
             <Route path="/program" element={<AdminPrograms />} />
             <Route path="/homepage" element={<Homepage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/test" element={<TestingPage />} />
           </Routes>
         </BrowserRouter>
