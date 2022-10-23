@@ -5,6 +5,7 @@ import { auth } from "../firebase";
 import Spinner from "react-spinkit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOut, faSignIn, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { Hearts } from "react-loader-spinner";
 
 export default function NavigationBar() {
   const [loading, setLoading] = useState(false);
@@ -23,8 +24,14 @@ export default function NavigationBar() {
 
   if (loading) {
     return (
-      <div className="m-5">
-        <Spinner name="ball-spin-fade-loader" color="blue" fadeIn="none" />
+      <div className="bg-warning d-flex justify-content-center align-items-center vh-100">
+        <Hearts
+          height="200"
+          width="250"
+          color="#111111"
+          ariaLabel="hearts-loading"
+          visible={true}
+        />
       </div>
     );
   }
