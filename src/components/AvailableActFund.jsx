@@ -29,7 +29,7 @@ export default function AvailableActFund() {
           <Tabs
             defaultActiveKey="programs"
             id="justify-tab-example"
-            className="mb-3"
+            className="mb-3 d-flex justify-content-center align-items-center"
           >
             <Tab eventKey="programs" title="Programs">
               <AllVolunteerProg />
