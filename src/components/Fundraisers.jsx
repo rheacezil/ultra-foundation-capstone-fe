@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionFundraisers from "../redux/actions/actionFundraiser";
-// import { renderLoading } from "../loaders";
+import { renderLoading } from "../loaders";
 
 // icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,12 +21,17 @@ export default function Fundaraisers() {
     useDispatch()
   );
 
-  useEffect(() => {
-    getAllFundraisers().then((response) => {
-      setFundraisers(response ? response.payload : []);
-    });
+  const [loading, setLoading] = useState(false);
 
-    console.log(fundraisers);
+  useEffect(() => {
+    setLoading(true);
+
+    getAllFundraisers().then((response) => {
+      setTimeout(() => {
+        setFundraisers(response ? response.payload : []);
+        setLoading(false);
+      }, 1000);
+    });
   }, []);
 
   //   const [loading, setLoading] = useState(false);
@@ -106,8 +111,8 @@ export default function Fundaraisers() {
             <span className="d-inline-block title-border"></span>
           </div>
           <div className="row pt-4 ">
-            {/* {loading ? renderLoading() : renderFundRaisers()} */}
-            {renderFundraisers()}
+            {loading ? renderLoading() : renderFundraisers()}
+            {/* {renderFundraisers()} */}
           </div>
         </Container>
       </section>
