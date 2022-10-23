@@ -122,7 +122,7 @@ export default function AdminPrograms() {
           <p className="card-title mb-1 text-muted">{program?.description}</p>
           <div className="py-2">
             <EventOutlinedIcon color="warning" />
-            <span> {program?.createdDate}</span>
+            <span> {program?.programDate}</span>
           </div>
           <div className="py-2">
             {" "}

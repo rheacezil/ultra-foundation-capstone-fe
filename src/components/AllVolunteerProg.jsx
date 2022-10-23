@@ -35,7 +35,9 @@ export default function AllVolunteerProg() {
             />
           </div>
           <div className="card-date position-absolute d-flex align-items-center justify-content-center">
-            <p className="text-center pt-1 fw-bold">{program.programDate}</p>
+            <p className="text-center pt-1 fw-bold">
+              {program.programDate.substring(0, 10)}
+            </p>
           </div>
           <Card.Body>
             <Card.Title>

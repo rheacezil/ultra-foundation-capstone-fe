@@ -30,7 +30,7 @@ export default function Fundaraisers() {
       setTimeout(() => {
         setFundraisers(response ? response.payload : []);
         setLoading(false);
-      }, 1000);
+      }, 3000);
     });
   }, []);
 
