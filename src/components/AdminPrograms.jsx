@@ -11,6 +11,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import TextField from "@mui/material/TextField";
 import EventOutlinedIcon from "@mui/icons-material/EventOutlined";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 export default function AdminPrograms() {
   const [programName, setProgramName] = useState("");
@@ -44,11 +45,14 @@ export default function AdminPrograms() {
 
     if (checkIfValid()) {
       const body = {
-        programDate:programDate,
-        programTime:programTime,
+        programDate: programDate,
+        programTime: programTime,
         programName: programName,
         description: description,
+        location: location,
       };
+
+      console.log(body);
 
       addProgram(body);
     }
@@ -109,7 +113,7 @@ export default function AdminPrograms() {
 
     // Return statement
     return (
-      <div className="card h-100 text-center w-100 p-1 shadow mb-5 bg-body rounded">
+      <div className="card h-100 text-center shadow mb-3 bg-body rounded">
         <img
           src={
             program.imageLink
@@ -118,18 +122,22 @@ export default function AdminPrograms() {
           }
           alt={program.programName}
           {...getRootProps()}
-          className="img-fluid h-100 w-100 border border-warning"
+          className="w-100 h-100"
         />
-        <div className="card-body">
+        <div className="card-body pb-5">
           <h5 className="card-title mb-1">{program?.programName}</h5>
           <p className="card-title mb-1 text-muted">{program?.description}</p>
           <div className="py-2">
             <EventOutlinedIcon color="warning" />
             <span> {program?.createdDate}</span>
           </div>
+          <div className="py-2">
+            <LocationOnIcon color="warning" />
+            <span>{program?.location}</span>
+          </div>
 
           <button
-            className="btn btn-md bg-warning text-center text-white "
+            className="btn btn-md bg-warning text-white "
             onClick={() => deleteProgram(program.programId)}
           >
             DELETE
@@ -145,8 +153,8 @@ export default function AdminPrograms() {
         {programList.map((program) => (
           <React.Fragment key={program.programId}>
             <div
-              className="col-md-3 mb-4"
-              style={{ height: "300px", width: "250px" }}
+              className="col-md-3 mb-4 mx-1"
+              style={{ height: "500px", width: "400px" }}
             >
               <MyDropzone {...program} />
             </div>
@@ -158,8 +166,8 @@ export default function AdminPrograms() {
 
   return (
     <section className="bg-light pt-5">
-      <div className="d-flex justify-content-center align-items-center bg-donate">
-        <div className="row w-50 h-50 pt-5 shadow p-3 mb-5 bg-body rounded">
+      <div className="row  d-flex justify-content-center align-items-center">
+        <div className=" w-50 h-50 pt-5 shadow mb-5 bg-body rounded d-flex justify-content-center align-items-center">
           <div className="col-md-6">
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="formProgramDate" className="mb-3">
@@ -190,6 +198,7 @@ export default function AdminPrograms() {
                 </Form.Control.Feedback>
               </Form.Group>
 
+              {/* Program Time */}
               <Form.Group controlId="formProgramName" className="mb-3">
                 <Form.Control
                   type="text"
@@ -197,11 +206,18 @@ export default function AdminPrograms() {
                   placeholder="Enter Program Time"
                   value={programTime}
                   onChange={(e) => setProgramTime(e.target.value)}
-             
                 ></Form.Control>
-                <Form.Control.Feedback type="invalid">
-                  Please input a valid Program name
-                </Form.Control.Feedback>
+              </Form.Group>
+
+              {/* Program Location */}
+              <Form.Group controlId="formProgramLocation" className="mb-3">
+                <Form.Control
+                  type="text"
+                  size="sm"
+                  placeholder="Enter Program Location"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                ></Form.Control>
               </Form.Group>
 
               {/* DESCRIPTION */}
@@ -231,7 +247,9 @@ export default function AdminPrograms() {
           </div>
 
           <hr />
-          <div className="row justify-content-center">{renderPrograms()}</div>
+        </div>
+        <div className="row justify-content-center w-100 h-100 pt-5">
+          {renderPrograms()}
         </div>
       </div>
     </section>

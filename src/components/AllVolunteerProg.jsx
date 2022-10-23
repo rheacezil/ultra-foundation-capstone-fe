@@ -6,6 +6,7 @@ import EventOutlinedIcon from "@mui/icons-material/EventOutlined";
 import { Button, Card, Container } from "react-bootstrap";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import JoinModalButton from "./JoinModalButton";
 
 export default function AllVolunteerProg() {
   const [programs, setPrograms] = useState([]);
@@ -34,30 +35,32 @@ export default function AllVolunteerProg() {
             />
           </div>
           <div className="card-date position-absolute d-flex align-items-center justify-content-center">
-            <p className="text-center p-3 fw-bold">October 24, 2022</p>
+            <p className="text-center pt-1 fw-bold">{program.programDate}</p>
           </div>
           <Card.Body>
             <Card.Title>
-              <h3 className="text-h">{program.programName}</h3>
+              <h2 className="text-h">{program.programName}</h2>
             </Card.Title>
             <Card.Text className="row">
-              <div className="py-2">
+              <div className="pt-2">
                 <p className="card-title mb-1 text-muted">
                   {program.description}
                 </p>
+              </div>
+              <div className="py-2">
+                {" "}
                 <AccessTimeIcon color="warning" />
                 <span> {program.programTime}</span>
               </div>
-              <div>
+              <div className="py-2">
                 <LocationOnIcon color="warning" />
-                <span>Angeles City, Pampanga</span>
+                <span>{program.location}</span>
               </div>
             </Card.Text>
-            <div className="pb-2">
-              <EventOutlinedIcon color="warning" />
-              <span> {program.programDate}</span>
+            <div>
+              {" "}
+              <JoinModalButton />{" "}
             </div>
-            <Button variant="warning">JOIN</Button>
           </Card.Body>
         </Card>
       </div>

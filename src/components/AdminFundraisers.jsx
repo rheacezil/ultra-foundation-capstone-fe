@@ -155,7 +155,7 @@ export default function AdminFundraisers() {
   return (
     <section className="bg-light pt-5">
       <div className="d-flex justify-content-center align-items-center">
-        <div className="row w-50 h-50 pt-5 shadow mb-5 bg-body rounded">
+        <div className="row w-50 h-50 pt-5 shadow mb-5 bg-body rounded d-flex justify-content-center align-items-center">
           <div className="col-md-6">
             <Form onSubmit={handleSubmit}>
               {/* fundraiser NAME */}
