@@ -113,7 +113,11 @@ export default function AdminPrograms() {
 
     // Return statement
     return (
+<<<<<<< Updated upstream
       <div className="card h-100 text-center shadow mb-3 bg-body rounded">
+=======
+      <div className="card h-100 w-100 p-1 shadow mb-5 bg-body rounded">
+>>>>>>> Stashed changes
         <img
           src={
             program.imageLink
@@ -132,6 +136,10 @@ export default function AdminPrograms() {
             <span> {program?.createdDate}</span>
           </div>
           <div className="py-2">
+            <LocationOnIcon color="warning" />
+            <span>{program?.location}</span>
+          </div>
+          <div className="pb-2">
             <LocationOnIcon color="warning" />
             <span>{program?.location}</span>
           </div>
@@ -198,6 +206,7 @@ export default function AdminPrograms() {
                 </Form.Control.Feedback>
               </Form.Group>
 
+<<<<<<< Updated upstream
               {/* Program Time */}
               <Form.Group controlId="formProgramName" className="mb-3">
                 <Form.Control
@@ -217,6 +226,27 @@ export default function AdminPrograms() {
                   placeholder="Enter Program Location"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
+=======
+              {/* Program Location */}
+              <Form.Group controlId="formProgramLocation" className="mb-3">
+                <Form.Control
+                  type="text"
+                  size="sm"
+                  placeholder="Enter Program Location"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
+
+              {/* Program Time */}
+              <Form.Group controlId="formProgramTime" className="mb-3">
+                <Form.Control
+                  type="text"
+                  size="sm"
+                  placeholder="Enter Program Time"
+                  value={programTime}
+                  onChange={(e) => setProgramTime(e.target.value)}
+>>>>>>> Stashed changes
                 ></Form.Control>
               </Form.Group>
 

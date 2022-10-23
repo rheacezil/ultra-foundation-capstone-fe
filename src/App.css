@@ -199,8 +199,8 @@
 .card-date {
   top: -20px;
   left: -20px;
-  height: 62px;
-  width: 62px;
+  height: 64px;
+  width: 64px;
   background: #ffc107;
   color: rgb(66, 64, 64);
   border-radius: 14%;
@@ -280,9 +280,4 @@
 
 .title-fil {
   font-size: x-large;
-}
-
-/********* DASHBOARD PAGE *********/
-#dashboard {
-  background-color: rgba(253, 245, 220, 1);
 }

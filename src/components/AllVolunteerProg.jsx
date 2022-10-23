@@ -35,14 +35,22 @@ export default function AllVolunteerProg() {
             />
           </div>
           <div className="card-date position-absolute d-flex align-items-center justify-content-center">
+<<<<<<< Updated upstream
             <p className="text-center pt-1 fw-bold">{program.programDate}</p>
+=======
+            <p className="text-center p-3 fw-bold">{program.programDate}</p>
+>>>>>>> Stashed changes
           </div>
           <Card.Body>
             <Card.Title>
               <h2 className="text-h">{program.programName}</h2>
             </Card.Title>
             <Card.Text className="row">
+<<<<<<< Updated upstream
               <div className="pt-2">
+=======
+              <div className="pb-2">
+>>>>>>> Stashed changes
                 <p className="card-title mb-1 text-muted">
                   {program.description}
                 </p>
@@ -50,17 +58,27 @@ export default function AllVolunteerProg() {
               <div className="py-2">
                 {" "}
                 <AccessTimeIcon color="warning" />
+<<<<<<< Updated upstream
                 <span> {program.programTime}</span>
               </div>
               <div className="py-2">
+=======
+                <span>{program.programTime}</span>
+              </div>
+              <div className="pb-2">
+>>>>>>> Stashed changes
                 <LocationOnIcon color="warning" />
                 <span>{program.location}</span>
               </div>
             </Card.Text>
+<<<<<<< Updated upstream
             <div>
               {" "}
               <JoinModalButton />{" "}
             </div>
+=======
+            <Button variant="warning">JOIN</Button>
+>>>>>>> Stashed changes
           </Card.Body>
         </Card>
       </div>
