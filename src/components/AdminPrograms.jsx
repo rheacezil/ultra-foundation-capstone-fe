@@ -1,15 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import dayjs from "dayjs";
-import { Button, Card, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionProgram from "../redux/actions/actionProgram";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
-import { LocalizationProvider } from "@mui/x-date-pickers-pro";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import TextField from "@mui/material/TextField";
 import EventOutlinedIcon from "@mui/icons-material/EventOutlined";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
@@ -17,6 +13,7 @@ export default function AdminPrograms() {
   const [programName, setProgramName] = useState("");
   const [description, setDescription] = useState("");
   const [programTime, setProgramTime] = useState("");
+  const [programDate, setProgramDate] = useState("");
   const [pointsToEarn, setPointsToEarn] = useState(null);
   const [duration, setDuration] = useState(null);
   const [location, setLocation] = useState("");
@@ -26,11 +23,6 @@ export default function AdminPrograms() {
     actionProgram,
     useDispatch()
   );
-  const [programDate, setProgramDate] = useState(dayjs("2022-01-01T21:11:54"));
-
-  const handleChange = (programDate) => {
-    setProgramDate(programDate);
-  };
 
   // Validation
   const [invalidProgramName, setInvalidProgramName] = useState(false);
@@ -170,17 +162,15 @@ export default function AdminPrograms() {
         <div className=" w-50 h-50 pt-5 shadow mb-5 bg-body rounded d-flex justify-content-center align-items-center">
           <div className="col-md-6">
             <Form onSubmit={handleSubmit}>
+              {/* Volunteer Date */}
               <Form.Group controlId="formProgramDate" className="mb-3">
-                {/* Volunteer Date */}
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DesktopDatePicker
-                    label="Date desktop"
-                    inputFormat="MM/DD/YYYY"
-                    value={programDate}
-                    onChange={handleChange}
-                    renderInput={(params) => <TextField {...params} />}
-                  />
-                </LocalizationProvider>
+                <Form.Control
+                  type="date"
+                  size="sm"
+                  placeholder="Enter Program Date"
+                  value={programDate}
+                  onChange={(e) => setProgramDate(e.target.value)}
+                ></Form.Control>
               </Form.Group>
 
               {/* Program NAME */}
@@ -201,7 +191,7 @@ export default function AdminPrograms() {
               {/* Program Time */}
               <Form.Group controlId="formProgramName" className="mb-3">
                 <Form.Control
-                  type="text"
+                  type="time"
                   size="sm"
                   placeholder="Enter Program Time"
                   value={programTime}
