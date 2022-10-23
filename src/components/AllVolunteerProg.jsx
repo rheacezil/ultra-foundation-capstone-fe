@@ -46,7 +46,7 @@ export default function AllVolunteerProg() {
                   {program.description}
                 </p>
                 <AccessTimeIcon color="warning" />
-                <span> 08:00am</span>
+                <span> {program.programTime}</span>
               </div>
               <div>
                 <LocationOnIcon color="warning" />

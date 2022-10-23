@@ -15,7 +15,7 @@ import EventOutlinedIcon from "@mui/icons-material/EventOutlined";
 export default function AdminPrograms() {
   const [programName, setProgramName] = useState("");
   const [description, setDescription] = useState("");
-  const [programTime, setProgramTime] = useState(null);
+  const [programTime, setProgramTime] = useState("");
   const [pointsToEarn, setPointsToEarn] = useState(null);
   const [duration, setDuration] = useState(null);
   const [location, setLocation] = useState("");
@@ -44,6 +44,8 @@ export default function AdminPrograms() {
 
     if (checkIfValid()) {
       const body = {
+        programDate:programDate,
+        programTime:programTime,
         programName: programName,
         description: description,
       };
@@ -123,7 +125,7 @@ export default function AdminPrograms() {
           <p className="card-title mb-1 text-muted">{program?.description}</p>
           <div className="py-2">
             <EventOutlinedIcon color="warning" />
-            <span> {program?.programDate}</span>
+            <span> {program?.createdDate}</span>
           </div>
 
           <button
@@ -182,6 +184,20 @@ export default function AdminPrograms() {
                   value={programName}
                   onChange={(e) => setProgramName(e.target.value)}
                   isInvalid={invalidProgramName}
+                ></Form.Control>
+                <Form.Control.Feedback type="invalid">
+                  Please input a valid Program name
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group controlId="formProgramName" className="mb-3">
+                <Form.Control
+                  type="text"
+                  size="sm"
+                  placeholder="Enter Program Time"
+                  value={programTime}
+                  onChange={(e) => setProgramTime(e.target.value)}
+             
                 ></Form.Control>
                 <Form.Control.Feedback type="invalid">
                   Please input a valid Program name
