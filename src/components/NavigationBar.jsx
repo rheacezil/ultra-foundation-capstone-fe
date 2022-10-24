@@ -75,6 +75,7 @@ export default function NavigationBar() {
                   >
                     <span className="nav-btn-label"> HOME</span>
                   </NavLink>
+<<<<<<< Updated upstream
                   {/* <NavLink
                     to="/"
                     className="btn position-relative border-0"
@@ -83,6 +84,8 @@ export default function NavigationBar() {
                     <span className="nav-btn-label"> DASHBOARD</span>
                   </NavLink> */}
 
+=======
+>>>>>>> Stashed changes
                   {localStorage.email === "admin@gmail.com" && (
                     <NavLink
                       to="/admin"

@@ -27,13 +27,13 @@ export default function Fundaraisers() {
     });
   }, []);
 
-  //   const [loading, setLoading] = useState(false);
-  //   useEffect(() => {
-  //     setLoading(true);
-  //     setTimeout(() => {
-  //       setLoading(false);
-  //     }, 2000);
-  //   }, []);
+  // const [loading, setLoading] = useState(false);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 9000);
+  // }, []);
 
   const renderFundraisers = () => {
     return fundraisers.map((fundraisers) => (

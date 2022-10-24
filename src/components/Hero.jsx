@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import DonateButtonModal from "./DonateButtonModal";
+import { useSpring, animated, config } from "react-spring";
 
 export default function Hero() {
+  const [flip, set] = useState(false);
+  const props = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    reset: true,
+    reverse: flip,
+    delay: 200,
+    config: config.molasses,
+    onRest: () => set(!flip),
+  });
+
   return (
     <>
       <section id="hero" className="vh-100">
         <div className="container h-100 d-flex align-items-center justify-content-center">
           <div className="text-center active">
-            <p className="text-white lead fw-light">Get involved now!</p>
+            <p className="text-white lead fw-light">
+              <animated.h5 style={props}>Get involved now!</animated.h5>
+            </p>
             <h1 className="text-white py-2 mb-5">
               “You have not lived today until you have done something for
               someone who can never repay you.”

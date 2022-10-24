@@ -13,7 +13,7 @@ export const renderLoading = () => {
         <Skeleton height={350} />
       </div>
       <div className="col-md-4">
-        <Skeleton height={20} />
+        <Skeleton height={350} />
       </div>
       <div className="col-md-4">
         <Skeleton height={20} />
@@ -30,9 +30,6 @@ export const renderLoading = () => {
       <div className="col-md-4">
         <Skeleton height={10} />
       </div>
-      
-      
-      
     </div>
   );
 };

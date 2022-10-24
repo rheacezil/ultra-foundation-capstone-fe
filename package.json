@@ -35,6 +35,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-spinkit": "^3.0.0",
+    "react-spring": "^9.5.5",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
     "redux-promise": "^0.6.0",

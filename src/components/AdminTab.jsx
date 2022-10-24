@@ -12,7 +12,7 @@ function AdminTab() {
           <Tabs
             defaultActiveKey="profile"
             id="justify-tab-example"
-            className="mb-3 d-flex justify-content-center align-items-center"
+            className="mb-3 d-flex justify-content-center align-items-center f-size"
           >
             <Tab eventKey="home" title="Donations">
               <DataTable />

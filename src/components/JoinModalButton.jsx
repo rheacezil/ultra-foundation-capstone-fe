@@ -32,7 +32,9 @@ export default function JoinModalButton() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="warning">I will attend</Button>
+          <Button variant="warning" onClick={handleClose}>
+            I will attend
+          </Button>
         </Modal.Footer>
       </Modal>
     </>
