@@ -75,13 +75,13 @@ export default function NavigationBar() {
                   >
                     <span className="nav-btn-label"> HOME</span>
                   </NavLink>
-                  <NavLink
+                  {/* <NavLink
                     to="/"
                     className="btn position-relative border-0"
                     type="button"
                   >
                     <span className="nav-btn-label"> DASHBOARD</span>
-                  </NavLink>
+                  </NavLink> */}
 
                   {localStorage.email === "admin@gmail.com" && (
                     <NavLink

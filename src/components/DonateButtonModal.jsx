@@ -1,17 +1,12 @@
-import { HelpOutline, NavigateBefore } from "@mui/icons-material";
-import {
-  Autocomplete,
-  Checkbox,
-  IconButton,
-  TextField,
-  Tooltip,
-  Zoom,
-} from "@mui/material";
-import { PayPalButtons } from "@paypal/react-paypal-js";
 import React, { useEffect, useState } from "react";
+
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { NavigateBefore } from "@mui/icons-material";
+import { Autocomplete, Checkbox, IconButton, TextField } from "@mui/material";
+
+// redux
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionFundraisers from "../redux/actions/actionFundraiser";
@@ -48,7 +43,7 @@ export default function DonateButtonModal() {
   }, []);
 
   const product = {
-    description: "fundraiserChoice",
+    description: `${email}`,
     price: amount,
   };
 
@@ -84,6 +79,8 @@ export default function DonateButtonModal() {
     } else {
       setInvalidLastname(false);
     }
+
+    return isValid;
   };
 
   const handleSubmit = (e) => {
@@ -99,9 +96,9 @@ export default function DonateButtonModal() {
 
       console.log(body);
       addDonation(body);
-
-      handleClose();
     }
+
+    handleClose();
   };
 
   const handleClose = () => {
@@ -289,87 +286,6 @@ export default function DonateButtonModal() {
 
         {count === 3 ? (
           <Modal.Body>
-            {/* <div className="row pb-3">
-              <div className="col">
-                <TextField
-                  variant="outlined"
-                  label="First Name*"
-                  size="small"
-                />
-              </div>
-              <div className="col">
-                <TextField variant="outlined" label="Last Name*" size="small" />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12 pb-3">
-                <TextField
-                  variant="outlined"
-                  className="w-100"
-                  label="Company"
-                  size="small"
-                />
-              </div>
-              <div className="col-lg-12 pb-1">
-                <TextField
-                  variant="outlined"
-                  className="w-100"
-                  label="Email Address*"
-                  size="small"
-                />
-              </div>
-              <div className="row">
-                <div className="d-flex align-items-start col-lg-12 pt-1 px-0">
-                  <p className="text-muted">
-                    <span>
-                      <Checkbox size="small" color="warning" />
-                    </span>
-                    Make an anonymous donation.
-                    <Tooltip
-                      title="Prevent your name from being displayed publicly."
-                      placement="top"
-                      TransitionComponent={Zoom}
-                      arrow
-                    >
-                      <HelpOutline
-                        style={{ paddingLeft: "2px" }}
-                        color="disabled"
-                        fontSize="small"
-                      />
-                    </Tooltip>
-                  </p>
-                </div>
-                <div
-                  className="d-flex align-items-start col-lg-12 pt-1 px-0"
-                  style={{ marginTop: "-30px" }}
-                >
-                  <p className="text-muted">
-                    <span>
-                      <Checkbox size="small" color="warning" />
-                    </span>
-                    I agree to the{" "}
-                    <a
-                      href="#"
-                      className="text-warning"
-                      style={{ textDecoration: "none" }}
-                    >
-                      terms
-                    </a>{" "}
-                    and the{" "}
-                    <a
-                      href="#"
-                      className="text-warning"
-                      style={{ textDecoration: "none" }}
-                    >
-                      privacy policy
-                    </a>
-                  </p>
-                </div>
-              </div>
-              <div className="paypal-button-container col-12 w-100">
-                <PaypalCheckoutButton product={product} />
-              </div>
-            </div> */}
             {localStorage.email ? (
               <>
                 <p className="text-center">
@@ -441,26 +357,6 @@ export default function DonateButtonModal() {
                     </Form.Group>
 
                     <div className="row">
-                      {/* <div className="d-flex align-items-start col-lg-12 pt-1 px-0">
-                      <p className="text-muted">
-                        <span>
-                          <Checkbox size="small" color="warning" />
-                        </span>
-                        Make an anonymous donation.
-                        <Tooltip
-                          title="Prevent your name from being displayed publicly."
-                          placement="top"
-                          TransitionComponent={Zoom}
-                          arrow
-                        >
-                          <HelpOutline
-                            style={{ paddingLeft: "2px" }}
-                            color="disabled"
-                            fontSize="small"
-                          />
-                        </Tooltip>
-                      </p>
-                    </div> */}
                       <div
                         className="d-flex align-items-start col-lg-12 pt-1 px-0"
                         // style={{ marginTop: "-30px" }}
@@ -504,10 +400,3 @@ export default function DonateButtonModal() {
     </>
   );
 }
-
-// ****** This data should come from the database ******* //
-// const fundraisers = [
-//   { label: "Project Aral" },
-//   { label: "Project Ngiti" },
-//   { label: "Project Linis" },
-// ];

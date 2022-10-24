@@ -23,7 +23,7 @@ export default function AvailableActFund() {
     //     </Tabs>
     //   </div>
     // </section>
-    <div className="container-fluid">
+    <div className="container-fluid pt-5">
       <div className="row">
         <div className="col-12">
           <Tabs
