@@ -15,8 +15,8 @@ export default function AdminPrograms() {
   const [description, setDescription] = useState("");
   const [programTime, setProgramTime] = useState("");
   const [programDate, setProgramDate] = useState("");
-  const [pointsToEarn, setPointsToEarn] = useState(null);
-  const [duration, setDuration] = useState(null);
+  // const [pointsToEarn, setPointsToEarn] = useState(null);
+  // const [duration, setDuration] = useState(null);
   const [location, setLocation] = useState("");
 
   const programList = useSelector((state) => state.programList);

@@ -11,6 +11,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionFundraisers from "../../redux/actions/actionFundraiser";
+import * as actionProgram from "../../redux/actions/actionProgram";
 
 export default function LandingPage() {
   // Fundraisers
@@ -28,11 +29,21 @@ export default function LandingPage() {
     console.log(fundraisers);
   }, []);
 
+  // VOLUNTEER PROGRAMS
+  const [programs, setPrograms] = useState([]);
+  const { getAllPrograms } = bindActionCreators(actionProgram, useDispatch());
+
+  useEffect(() => {
+    getAllPrograms().then((response) => {
+      setPrograms(response ? response.payload : []);
+    });
+  }, []);
+
   return (
     <>
       <NavigationBar />
       <Hero />
-      <AllVolunteerProg />
+      {programs.length > 0 ? <AllVolunteerProg /> : null}
       {fundraisers.length > 0 ? <Fundaraisers /> : null}
 
       <Scholars />

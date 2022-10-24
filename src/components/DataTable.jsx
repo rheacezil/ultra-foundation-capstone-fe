@@ -12,9 +12,8 @@ export default function DataTable() {
               <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Company</th>
+                <th>Email</th>
                 <th>Amount</th>
-                <th>Actions</th>
               </tr>
             </thead>
 
@@ -23,15 +22,6 @@ export default function DataTable() {
               <td>test</td>
               <td>test</td>
               <td>test</td>
-              <td>
-                <button className="btn btn-success text-dark mx-1">
-                  <FontAwesomeIcon icon={faPencil} />
-                </button>
-
-                <button className="btn btn-danger text-dark mx-1">
-                  <FontAwesomeIcon icon={faTrash} />
-                </button>
-              </td>
             </tbody>
           </table>
         </div>

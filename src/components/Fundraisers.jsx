@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as actionFundraisers from "../redux/actions/actionFundraiser";
+import * as actionFundraiser from "../redux/actions/actionFundraiser";
 import { renderLoading } from "../loaders";
 
 // icons
@@ -17,7 +17,7 @@ import DonateButtonModal from "./DonateButtonModal";
 export default function Fundaraisers() {
   const [fundraisers, setFundraisers] = useState([]);
   const { getAllFundraisers } = bindActionCreators(
-    actionFundraisers,
+    actionFundraiser,
     useDispatch()
   );
 
@@ -25,7 +25,7 @@ export default function Fundaraisers() {
     getAllFundraisers().then((response) => {
       setFundraisers(response ? response.payload : []);
     });
-  });
+  }, []);
 
   //   const [loading, setLoading] = useState(false);
   //   useEffect(() => {
