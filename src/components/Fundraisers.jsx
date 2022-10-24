@@ -54,23 +54,6 @@ export default function Fundaraisers() {
         <span className="position-absolute d-flex align-items-center justify-content-center text-dark fs-4">
           <DonateButtonModal />
         </span>
-        <div className="progress">
-          <div
-            className="progress-bar progress-bar-striped progress-bar-animated bg-warning text-dark justify-content-center"
-            role="progressbar"
-            aria-label="Warning striped example"
-            style={{
-              width: `${
-                (fundraisers.amountGenerated / fundraisers.targetAmount) * 100
-              }%`,
-            }}
-            aria-valuenow="75"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          >
-            {(fundraisers.amountGenerated / fundraisers.targetAmount) * 100}%
-          </div>
-        </div>
         <div className="card-body">
           <h4 className="card-title">{fundraisers.fundraiserName}</h4>
           <p className="card-text pb-5 text-muted">

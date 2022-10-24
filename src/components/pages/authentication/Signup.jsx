@@ -10,8 +10,8 @@ import * as actionUser from "../../../redux/actions/actionUser";
 import { bindActionCreators } from "redux";
 
 export default function Signup() {
-  const [firstname, setFirstName] = useState("");
-  const [lastname, setLastName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -49,8 +49,8 @@ export default function Signup() {
     e.preventDefault();
     if (checkIfValid()) {
       registerUser({
-        firstname: firstname,
-        lastname: lastname,
+        firstname: firstName,
+        lastname: lastName,
         email: email,
         password: password,
       })
@@ -104,7 +104,7 @@ export default function Signup() {
                     type="text"
                     size="sm"
                     placeholder="First Name"
-                    value={firstname}
+                    value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     autoComplete="firstname"
                     // isInvalid={invalidFirstName}
@@ -120,7 +120,7 @@ export default function Signup() {
                     type="text"
                     size="sm"
                     placeholder="Last Name"
-                    value={lastname}
+                    value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     autoComplete="name"
                     // isInvalid={invalidLastName}
