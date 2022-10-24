@@ -21,18 +21,11 @@ export default function Fundaraisers() {
     useDispatch()
   );
 
-  const [loading, setLoading] = useState(false);
-
   useEffect(() => {
-    setLoading(true);
-
     getAllFundraisers().then((response) => {
-      setTimeout(() => {
-        setFundraisers(response ? response.payload : []);
-        setLoading(false);
-      }, 3000);
+      setFundraisers(response ? response.payload : []);
     });
-  }, []);
+  });
 
   //   const [loading, setLoading] = useState(false);
   //   useEffect(() => {
@@ -111,8 +104,8 @@ export default function Fundaraisers() {
             <span className="d-inline-block title-border"></span>
           </div>
           <div className="row pt-4 ">
-            {loading ? renderLoading() : renderFundraisers()}
-            {/* {renderFundraisers()} */}
+            {/* {loading ? renderLoading() : renderFundraisers()} */}
+            {renderFundraisers()}
           </div>
         </Container>
       </section>

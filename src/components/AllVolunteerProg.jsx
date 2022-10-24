@@ -20,7 +20,7 @@ export default function AllVolunteerProg() {
 
   const renderPrograms = () => {
     return programs.map((program) => (
-      <div className="col-md-6 col-lg-4 my-3 h-100">
+      <div className="col-sm-12 col-md-6 col-lg-4 my-3 h-100">
         <Card style={{ width: "25rem" }} className=" p-0">
           <div className="overflow-hidden">
             <Card.Img
