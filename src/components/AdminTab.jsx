@@ -14,9 +14,9 @@ function AdminTab() {
             id="justify-tab-example"
             className="mb-3 d-flex justify-content-center align-items-center f-size"
           >
-            <Tab eventKey="home" title="Donations">
+            {/* <Tab eventKey="home" title="Donations">
               <DataTable />
-            </Tab>
+            </Tab> */}
             <Tab eventKey="profile" title="Fundraisers">
               <AdminFundraisers />
             </Tab>

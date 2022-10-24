@@ -17,7 +17,7 @@ export default function Homepage() {
     <>
       <NavigationBar />
       <HeroHome />
-      {/* <Activities /> */}
+      <Activities />
       <AvailableActFund />
       <Footer />
     </>

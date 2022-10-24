@@ -11,12 +11,11 @@ import { useDispatch } from "react-redux";
 export default function Activities() {
   return (
     <section>
-      <div className=" bg-act vh-100 volunteer-act position-relative d-block event">
-        <Container className="d-flex justify-content-center align-items-center h-100">
-          <h3 className="text-warning">
-            You did not join to any volunteer programs
-          </h3>
-        </Container>
+      <div className=" bg-act text-center volunteer-act position-relative d-block event">
+        <h4>
+          Scroll through and take part on these active fundraisers and volunteer
+          programs!
+        </h4>
       </div>
     </section>
   );

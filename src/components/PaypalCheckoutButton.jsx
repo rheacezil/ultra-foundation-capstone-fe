@@ -14,14 +14,6 @@ export default function PaypalCheckoutButton(props) {
   const handleApprove = (orderId) => {
     // call backend function to fulfill order
     console.log(product);
-    const body = {
-      email: product.description,
-      amount: product.price,
-    };
-
-    addDonation(body);
-
-    // window.location.reload();
 
     // if response is successful
     setPaidFor(true);
@@ -47,6 +39,7 @@ export default function PaypalCheckoutButton(props) {
       }}
       onClick={(data, actions) => {
         // Validate on button click, client or server side
+        // window.location.reload();
       }}
       createOrder={(data, actions) => {
         return actions.order.create({
@@ -63,6 +56,7 @@ export default function PaypalCheckoutButton(props) {
       onApprove={async (data, actions) => {
         const order = await actions.order.capture();
         console.log("order", order);
+        console.log(data.orderID);
 
         handleApprove(data.orderID);
       }}

@@ -43,13 +43,12 @@ export default function DonateButtonModal() {
   }, []);
 
   const product = {
-    description: `${email}`,
+    description: "amount",
     price: amount,
   };
 
   const handleShow = () => {
     setShow(true);
-    // console.log(fundraisers);
   };
 
   // create a checkIfValid function to see if there are input datas
@@ -97,8 +96,6 @@ export default function DonateButtonModal() {
       console.log(body);
       addDonation(body);
     }
-
-    handleClose();
   };
 
   const handleClose = () => {
@@ -385,10 +382,7 @@ export default function DonateButtonModal() {
                       </div>
                     </div>
                     <div className="paypal-button-container col-12 w-100">
-                      <PaypalCheckoutButton
-                        product={product}
-                        onClick={handleSubmit}
-                      />
+                      <PaypalCheckoutButton product={product} />
                     </div>
                   </div>
                 </Form>
