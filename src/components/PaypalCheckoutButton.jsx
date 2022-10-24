@@ -14,6 +14,7 @@ export default function PaypalCheckoutButton(props) {
   const handleApprove = (orderId) => {
     // call backend function to fulfill order
     console.log(product);
+    window.location.reload();
 
     // if response is successful
     setPaidFor(true);
